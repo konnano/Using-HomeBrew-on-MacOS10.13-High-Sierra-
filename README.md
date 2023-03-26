@@ -67,6 +67,8 @@ brew install --cc=llvm_clang isl
 islはこれでインストール出来ますが、gccは通常インストールして下さい</br>
 (詳しく分かりませんが x86_64、i386 コンパイルで違うようです)
 
+\# 2023年3月末、llvm@16 リリースされました、インストール方法は同じです</br></br>
+
 nodeはヘッダーのコピーと書き換えが必要になります
 
 システムに触れるのでSystem Integrity Protection(SIP)を無効にして下さい
