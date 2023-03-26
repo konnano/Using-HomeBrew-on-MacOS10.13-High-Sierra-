@@ -89,4 +89,10 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 brew install --cc=llvm_clang node
 
-2023年3月、通常インストールと --cc=llvm_clang を使い分ければMacOS10.13でもまだ使えます
+2023年3月、通常インストールと --cc=llvm_clang を使い分ければMacOS10.13でもまだ使えます</br></br>
+
+2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
+
+ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
+
+brew install --cc=gcc-12 ghostscript
