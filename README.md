@@ -69,6 +69,16 @@ islはこれでインストール出来ますが、gccは通常インストー�
 
 \# 2023年3月末、llvm@16 リリースされました、インストール方法は同じです(node のビルドに必要です)</br></br>
 
+llvm 16.0.1 がリリースされました、libtoolライブラリーが古いのでビルドエラーになります
+
+Appleから10.15用のXcode(12.4)をダウンロードしてlibtoolライブラリーをコピーします
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool
+
+Xcodeのダウンロードと展開は時間かかるので面倒な方は添付してるXcode(12.4)のlibtoolを使って下さい
+
+念のため元のlibtoolのバックアップ取っておきビルドが終われば元に戻しましょう</br></br>
+
 nodeはヘッダーのコピーと書き換えが必要になります
 
 システムに触れるのでSystem Integrity Protection(SIP)を無効にして下さい
