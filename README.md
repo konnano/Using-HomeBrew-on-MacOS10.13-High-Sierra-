@@ -67,17 +67,21 @@ brew install --cc=llvm_clang isl
 islはこれでインストール出来ますが、gccは通常インストールして下さい</br>
 (詳しく分かりませんが x86_64、i386 コンパイルで違うようです)
 
-\# 2023年3月末、llvm@16 リリースされました、インストール方法は同じです(node のビルドに必要です)</br></br>
+\# 2023年3月末、llvm@16 リリースされました、インストール方法は同じです</br></br>
 
 llvm 16.0.1 がリリースされました、libtoolライブラリーが古いのでビルドエラーになります
 
-Appleから10.15用のXcode(12.4)をダウンロードしてlibtoolライブラリーをコピーします
+添付のXcode(12.4)の libtoolに差し替えればインストール出来ますが機能しません
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool
 
-Xcodeのダウンロードと展開は時間かかるので面倒な方は添付してるXcode(12.4)のlibtoolを使って下さい
+node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.1をインストールしないなら
 
-念のため元のlibtoolのバックアップ取っておきビルドが終われば元に戻しましょう</br></br>
+brew edit node : 36行目、以下をコメントにして下さい
+
+on_macos do  
+&emsp;&emsp;depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100  
+end</br></br>
 
 nodeはヘッダーのコピーと書き換えが必要になります
 
@@ -89,14 +93,14 @@ sudo cp /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/os/signp
 
 sudo vim /usr/include/os/signpost.h ; # 280行目
 
-#define os_signpost_event_emit(log, event_id, name, ...) \\</br>
-&emsp;&emsp;        os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\</br>
+#define os_signpost_event_emit(log, event_id, name, ...) \\  
+&emsp;&emsp;        os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##__VA_ARGS__)
 
 これを以下に書き換えます
 
-#define os_signpost_event_emit(log, event_id, name, ...)</br>
-&emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\</br>
+#define os_signpost_event_emit(log, event_id, name, ...)  
+&emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##__VA_ARGS__)
 
 brew install --cc=llvm_clang node
