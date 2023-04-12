@@ -75,7 +75,7 @@ llvm 16.0.1 がリリースされました、libtoolライブラリーが古い�
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool
 
-node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.1をインストールしないなら
+node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.1が無いないなら
 
 brew edit node : 36行目、以下をコメントにして下さい
 
