@@ -38,7 +38,7 @@ https://stackoverflow.com/questions/69906053/how-to-install-llvm13-with-homerew-
 
 ターミナルをもう１枚開くか、iTerm2なら画面分割で top -u コマンドで動作確認します
 
-brew install --cc=llvm_clang llvm
+brew install --cc=llvm_clang llvm@15
 
 これでソースがダウンロードされ展開され /tmp にコピーされます
 
