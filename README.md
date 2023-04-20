@@ -44,7 +44,7 @@ brew install --cc=llvm_clang llvm@15
 
 topコマンドで bsdtar、ruby、cp と動作確認が出来たらmake前にllvmフォルダーに入って
 
-../../lldb/source/Host/macosx/objcxx/HostInfoMacOSX.mm の236行目
+/tmp/llvm...../llvm...../lldb/source/Host/macosx/objcxx/HostInfoMacOSX.mm の236行目
 
 if (cputype == CPU_TYPE_ARM64 && cpusubtype == CPU_SUBTYPE_ARM64E) {
 
