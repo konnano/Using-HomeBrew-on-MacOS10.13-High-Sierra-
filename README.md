@@ -119,7 +119,7 @@ brew install --cc=llvm_clang node
 
 ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
 
-brew install --cc=gcc-12 ghostscript</br></br>
+brew install --cc=gcc-13 ghostscript</br></br>
 
 2023年3月末、tcl-tkは 8.6バージョン対応のヘッダーを持ち込みインストールに使うようです
 
