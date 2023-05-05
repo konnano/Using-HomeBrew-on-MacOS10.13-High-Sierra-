@@ -65,7 +65,7 @@ brew install --cc=llvm_clang isl
 islはこれでインストール出来ますが、gccは通常インストールして下さい</br>
 (詳しく分かりませんが x86_64、i386 コンパイルで違うようです)
 
-\# 2023年4月末、llvm@16.0.2 がリリースされました、インストール方法は同じです
+\# 2023年5月、llvm@16.0.3 がリリースされました、インストール方法は同じです
 
 llvm@16以降はヘッダーをコメントにしないと動きません
 
@@ -75,15 +75,9 @@ return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded
 
 これを以下に書き換えます
 
-return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
+return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);</br></br>
 
-~~llvm 16.0.1 がリリースされました、libtoolライブラリーが古いのでビルドエラーになります~~
-
-~~添付のXcode(12.4)の libtoolに差し替えればインストール出来ますが機能しません~~
-
-~~/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool~~
-
-node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.2が無いないなら
+node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.3が無いないなら
 
 brew edit node : 36行目、以下をコメントにして下さい
 
