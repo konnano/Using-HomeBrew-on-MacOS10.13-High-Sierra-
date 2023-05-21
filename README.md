@@ -127,4 +127,18 @@ sudo mv /usr/include/tk.h /usr/include/tk_.h
 
 これで、tcl-tkのインストールが出来ます、完了後 tk.hヘッダーを戻します
 
-sudo mv /usr/include/tk_.h /usr/include/tk.h
+sudo mv /usr/include/tk_.h /usr/include/tk.h</br></br>
+
+2023年5月 tar のバージョンが古い為にファイル展開すら出来なくなりました
+
+brew install gnu-tar
+
+/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても大丈夫です
+
+sudo mv /usr/bin/tar /usr/bin/tar_buck</br>
+sudo ln -s /usr/local/bin/gtar /usr/bin/tar
+
+目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう
+
+sudo rm /usr/bin/tar</br>
+sudo mv /usr/bin/tar_buck /usr/bin/tar
