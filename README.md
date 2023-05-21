@@ -133,7 +133,7 @@ sudo mv /usr/include/tk_.h /usr/include/tk.h</br></br>
 
 brew install gnu-tar
 
-/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても大丈夫です
+/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます
 
 sudo mv /usr/bin/tar /usr/bin/tar_buck</br>
 sudo ln -s /usr/local/bin/gtar /usr/bin/tar
