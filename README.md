@@ -129,7 +129,7 @@ sudo mv /usr/include/tk.h /usr/include/tk_.h
 
 sudo mv /usr/include/tk_.h /usr/include/tk.h</br></br>
 
-2023年5月 tar のバージョンが古い為にファイル展開すら出来なくなりました
+2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
 
 brew install gnu-tar
 
@@ -142,3 +142,7 @@ sudo ln -s /usr/local/bin/gtar /usr/bin/tar
 
 sudo rm /usr/bin/tar</br>
 sudo mv /usr/bin/tar_buck /usr/bin/tar
+
+/usr/local/bin のパスが先に読み込まれ、CUIのみ使用なら以下で使えます
+
+ln -s /usr/local/bin/gtar /usr/local/bin/tar
