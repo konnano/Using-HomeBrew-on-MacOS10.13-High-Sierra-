@@ -93,15 +93,15 @@ ACLOCAL_PATH: /usr/local/share/aclocal
 PATH: /usr/local/Homebrew/Library/Homebrew/shims/mac/super:/usr/local/opt/pkg-config/bin:/usr/local/opt/python@3.11/bin:/usr/local/opt/brotli/bin:/usr/local/opt/c-ares/bin:/usr/local/opt/icu4c/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/opt/sqlite/bin:/usr/local/opt/xz/bin:/usr/local/opt/llvm/bin:/usr/local/opt/python@3.11/libexec/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/gcc/bin
 
 
-原因わかりました、単なるタイプミスです、書き換え面倒なので２行にしてコメントにしてます
+原因わかりました、単なるタイプミスです、普段は書き換え面倒なので２行にしてコメント差し替えで使ってます
 /usr/local/Homebrew/Library/Homebrew/shims/super/cc の80行目と81行目
 
   "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm/bin/#{Regexp.last_match(1)} # <= ここ
  # "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"
 
-ダブルクォートが抜けてました、なぜにrubyの構文エラーにならないでしょうか、試しに書き換え
+ダブルクォートが抜けてました、なぜにrubyの構文エラーにならないのでしょうか、試しに書き換え
 
  # "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm/bin/#{Regexp.last_match(1)}"
   "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)} # <= ここ
 
-これだとrubyのエラーが出ます、ruby知らないので、なんでこうなるのか激しく謎です
+これだとrubyの構文エラーが出ます、ruby知らないので、なんでこうなるのか激しく謎です
