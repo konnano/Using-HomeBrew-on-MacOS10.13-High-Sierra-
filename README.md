@@ -65,7 +65,7 @@ brew install --cc=llvm_clang isl
 islはこれでインストール出来ますが、gccは通常インストールして下さい</br>
 (詳しく分かりませんが x86_64、i386 コンパイルで違うようです)
 
-\# 2023年5月、llvm@16.0.4 がリリースされました、インストール方法は同じです
+\# 2023年6月、llvm@16.0.5 がリリースされました、インストール方法は同じです
 
 llvm@16以降はヘッダーをコメントにしないと動きません
 
@@ -77,7 +77,9 @@ return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded
 
 return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);</br></br>
 
-node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.4が無いないなら
+php はllvm(llvm@16.0.5)だとエラーになります、llvm@15を使いましょう
+
+node のビルドも llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.5が無いないなら
 
 brew edit node : 36行目、以下をコメントにして下さい
 
