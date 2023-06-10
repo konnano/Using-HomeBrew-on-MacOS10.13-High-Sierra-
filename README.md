@@ -77,7 +77,7 @@ return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded
 
 return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);</br></br>
 
-php はllvm(llvm@16.0.5)だとエラーになります、llvm@15を使いましょう
+php はllvm(llvm@16.0.5)だとヘッダーの書き換えが必要になります、面倒なのでllvm@15を使いましょう
 
 node のビルドも llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.5が無いないなら
 
