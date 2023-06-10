@@ -67,7 +67,7 @@ islはこれでインストール出来ますが、gccは通常インストー�
 
 \# 2023年6月、llvm@16.0.5 がリリースされました、インストール方法は同じです
 
-llvm@16以降はヘッダーをコメントにしないと動きません
+llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
 
 vim /usr/local/opt/llvm/include/c++/v1/new; # の355行目
 
@@ -77,9 +77,7 @@ return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded
 
 return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);</br></br>
 
-php はllvm(llvm@16.0.5)だとヘッダーの書き換えが必要になります、面倒なのでllvm@15を使いましょう
-
-node のビルドも llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.5が無いないなら
+node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.5が無いないなら
 
 brew edit node : 36行目、以下をコメントにして下さい
 
@@ -107,7 +105,13 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 &emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##__VA_ARGS__)
 
-brew install --cc=llvm_clang node
+brew install --cc=llvm_clang node</br></br>
+
+php はllvm(llvm@16.0.5)でビルドすると　/usr/include/os/signpost.hを読み込みヘッダーでエラーが出ます
+
+/usr/include/os/signpost.h 226行目、251行目を nodoと同じ様に書き換えれば良いのですが面倒です
+
+node用に /usr/include/os/signpost.hを置いてるなら　phpのビルドには llvm@15を使いましょう
 
 2023年3月、通常インストールと --cc=llvm_clang を使い分ければMacOS10.13でもまだ使えます</br></br>
 
