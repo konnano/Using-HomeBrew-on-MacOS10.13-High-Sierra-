@@ -113,7 +113,9 @@ php はllvm(llvm@16.0.5)でビルドすると　/usr/include/os/signpost.hを読
 
 node用に /usr/include/os/signpost.hを置いてるなら　phpのビルドには llvm@15を使いましょう
 
-2023年3月、通常インストールと --cc=llvm_clang を使い分ければMacOS10.13でもまだ使えます</br></br>
+2023年3月、通常インストールと --cc=llvm_clang を使い分ければMacOS10.13でもまだ使えます
+
+rust はビルドの順番があるようです --cc=llvm_clangでいきなりビルド指定するとエラーになります</br></br>
 
 2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
 
