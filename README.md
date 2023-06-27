@@ -123,19 +123,19 @@ ghostscriptは gccに依存するのでインストールオプションを変�
 
 brew install --cc=gcc-13 ghostscript</br></br>
 
-2023年3月末、tcl-tkは 8.6バージョン対応のヘッダーを持ち込みインストールに使うようです
+~~2023年3月末、tcl-tkは 8.6バージョン対応のヘッダーを持ち込みインストールに使うようです~~
 
-10.13は /usr/includeに 8.5対応の tk.hのヘッダーがシンボリックされてる為に
+~~10.13は /usr/includeに 8.5対応の tk.hのヘッダーがシンボリックされてる為に~~
 
-インストールのさいに /usr/includeのヘッダー読み込みが優先されエラーになります
+~~インストールのさいに /usr/includeのヘッダー読み込みが優先されエラーになります~~
 
-大胆に /use/includeの tk.hを置き換えます
+~~大胆に /use/includeの tk.hを置き換えます~~
 
-sudo mv /usr/include/tk.h /usr/include/tk_.h
+~~sudo mv /usr/include/tk.h /usr/include/tk_.h~~
 
-これで、tcl-tkのインストールが出来ます、完了後 tk.hヘッダーを戻します
+~~これで、tcl-tkのインストールが出来ます、完了後 tk.hヘッダーを戻します~~
 
-sudo mv /usr/include/tk_.h /usr/include/tk.h</br></br>
+~~sudo mv /usr/include/tk_.h /usr/include/tk.h~~</br></br>
 
 2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
 
