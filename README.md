@@ -154,3 +154,9 @@ sudo mv /usr/bin/tar_buck /usr/bin/tar
 /usr/local/bin のパスが先に読み込まれ、CUIのみ使用なら以下で使えます
 
 ln -s /usr/local/bin/gtar /usr/local/bin/tar
+
+2023年6月末　openldap はメイク後、既存のファイルを参照してリンクするようです
+
+アップグレードする場合は置換エラーになるので既存ファイルを削除してアップグレードして下さい
+
+rm /usr/local/etc/openldap/slapd.conf /usr/local/etc/openldap/slapd.ldif
