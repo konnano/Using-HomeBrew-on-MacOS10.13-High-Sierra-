@@ -169,7 +169,7 @@ subversion は llvm がインストールされていればメイクに clang �
 
 clang と clang-15 はアーキテクチャが違うので llvm があるとエラーになります
 
-subversion をインストールする場合は llvm のリンクを切ってインストールして下さい
+subversion をインストールする場合は llvm のリンクを解除してインストールして下さい
 
 brew unlink llvm@15  
 brew install subversion
