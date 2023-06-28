@@ -159,4 +159,19 @@ ln -s /usr/local/bin/gtar /usr/local/bin/tar
 
 アップグレードする場合は置換エラーになるので既存ファイルを削除してアップグレードして下さい
 
-rm /usr/local/etc/openldap/slapd.conf /usr/local/etc/openldap/slapd.ldif
+rm /usr/local/etc/openldap/slapd.conf /usr/local/etc/openldap/slapd.ldif</br></br>
+
+subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
+
+10.13 純正 clang のアーキテクチャは i386 , clang-15 のアーキテクチャは x86_64 になります
+
+clang と clang-15 はアーキテクチャが違うので llvm があるとエラーになります
+
+subversion をインストールする場合は llvm のリンクを切ってインストールして下さい
+
+brew unlink llvm@15  
+brew install subversion
+
+subversion のインストールが終われば llvm のリンクを戻して大丈夫です
+
+brew link llvm@15
