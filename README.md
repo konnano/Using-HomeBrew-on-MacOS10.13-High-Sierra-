@@ -159,7 +159,9 @@ ln -s /usr/local/bin/gtar /usr/local/bin/tar
 
 アップグレードする場合は置換エラーになるので既存ファイルを削除してアップグレードして下さい
 
-rm /usr/local/etc/openldap/slapd.conf /usr/local/etc/openldap/slapd.ldif</br></br>
+rm /usr/local/etc/openldap/slapd.conf /usr/local/etc/openldap/slapd.ldif
+
+10.13 環境の問題では無い様です　,  https://github.com/orgs/Homebrew/discussions/4586</br></br>
 
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
