@@ -81,9 +81,9 @@ node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが�
 
 brew edit node : 36行目、以下をコメントにして下さい
 
-on_macos do  
-&emsp;&emsp;depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100  
-end</br></br>
+\# on_macos do  
+\# &emsp;&emsp;depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100  
+\# end</br></br>
 
 nodeはヘッダーのコピーと書き換えが必要になります
 
