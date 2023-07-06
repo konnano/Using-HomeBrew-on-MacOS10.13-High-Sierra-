@@ -105,7 +105,11 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 &emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##__VA_ARGS__)
 
-brew install --cc=llvm_clang node</br></br>
+brew install --cc=llvm_clang node
+
+MacBook Pro Mid 2012 で　npm のアップデートされないので  
+usr/local/lib/node_modules/npm を調べると何故か所有者 root になってました  
+フォルダー内を調べると所有者、破茶滅茶になってるので chown -R で全て自分に変更しました</br></br>
 
 php はllvm(llvm@16.0.5)でビルドすると　/usr/include/os/signpost.hを読み込みヘッダーでエラーが出ます
 
