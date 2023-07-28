@@ -127,37 +127,33 @@ ghostscriptは gccに依存するのでインストールオプションを変�
 
 brew install --cc=gcc-13 ghostscript</br></br>
 
-~~2023年3月末、tcl-tkは 8.6バージョン対応のヘッダーを持ち込みインストールに使うようです~~
 
-~~10.13は /usr/includeに 8.5対応の tk.hのヘッダーがシンボリックされてる為に~~
+~~2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました~~
 
-~~インストールのさいに /usr/includeのヘッダー読み込みが優先されエラーになります~~
+~~brew install gnu-tar~~
 
-~~大胆に /use/includeの tk.hを置き換えます~~
+~~/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます~~
 
-~~sudo mv /usr/include/tk.h /usr/include/tk_.h~~
+~~sudo mv /usr/bin/tar /usr/bin/tar_buck</br>~~
+~~sudo ln -s /usr/local/bin/gtar /usr/bin/tar~~
 
-~~これで、tcl-tkのインストールが出来ます、完了後 tk.hヘッダーを戻します~~
+~~目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう~~
 
-~~sudo mv /usr/include/tk_.h /usr/include/tk.h~~</br></br>
+~~sudo rm /usr/bin/tar</br>~~
+~~sudo mv /usr/bin/tar_buck /usr/bin/tar~~
 
-2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
+~~/usr/local/bin のパスが先に読み込まれ、CUIのみ使用なら以下で使えます~~
 
-brew install gnu-tar
+~~ln -s /usr/local/bin/gtar /usr/local/bin/tar~~
 
-/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます
+2023年7月 gnu-tar 1.35 はバグがある様で　configure オプションで  
+--disable-nls で言語サポートを無効にしないとインストールエラーになります  
+brew edit gnu-tar # 37行目
 
-sudo mv /usr/bin/tar /usr/bin/tar_buck</br>
-sudo ln -s /usr/local/bin/gtar /usr/bin/tar
-
-目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう
-
-sudo rm /usr/bin/tar</br>
-sudo mv /usr/bin/tar_buck /usr/bin/tar
-
-/usr/local/bin のパスが先に読み込まれ、CUIのみ使用なら以下で使えます
-
-ln -s /usr/local/bin/gtar /usr/local/bin/tar
+args << if OS.mac?  
+&emsp;&emsp;"--program-prefix=g"  
+&emsp;&emsp;"--disable-nls"  
+else
 
 2023年6月末　openldap はメイク後、既存のファイルを参照してリンクするようです
 
