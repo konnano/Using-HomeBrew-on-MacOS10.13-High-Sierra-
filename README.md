@@ -21,7 +21,7 @@ vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年3月現在、freetype、jpeg-xl、php、mysql などは以下でインストール出来ます
+2023年3月現在、freetype、jpeg-xl、php、~~mysql~~ などは以下でインストール出来ます
 
 brew install --cc=llvm_clang \<Formula>
 
