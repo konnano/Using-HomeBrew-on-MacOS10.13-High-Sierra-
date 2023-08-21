@@ -177,3 +177,7 @@ brew install subversion
 subversion のインストールが終われば llvm のリンクを戻して大丈夫です
 
 brew link llvm@15
+
+2023年8月 mysqlのビルドでエラーになります  
+OS10.15でも再現される為、cmakeのビルドオプション辺りかも知れません  
+詳しい方、教えて下さい
