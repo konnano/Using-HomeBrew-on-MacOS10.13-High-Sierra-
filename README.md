@@ -179,5 +179,13 @@ subversion のインストールが終われば llvm のリンクを戻して大
 brew link llvm@15
 
 2023年8月 mysqlのビルドでエラーになります  
-OS10.15でも再現される為、cmakeのビルドオプション辺りかも知れません  
-詳しい方、教えて下さい
+mysqlメーリングリストの諸先輩にご指導頂きインストール出来ました  
+mysql、HomeBrewどちらのバグか分かりませんが、なぜかopenssl@1.1ヘッダーを読み込み  
+openssl@3にリンクする為にエラーになります
+
+mv /usr/local/opt/openssl@1.1/include /usr/local/opt/openssl@1.1/include_buck
+
+これでopenssl@3のヘッダーを読みに行ってくれます
+
+mysqlのインストールが終わればopenssl@1.1/includeの場所戻しときましょう
+
