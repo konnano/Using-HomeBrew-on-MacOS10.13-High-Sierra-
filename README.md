@@ -178,7 +178,7 @@ subversion のインストールが終われば llvm のリンクを戻して大
 
 brew link llvm@15
 
-2023年8月 mysql 8.1.0のビルドでエラーになります  
+2023年8月 mysql 8.1.0のビルドでエラーになります、brew install --cc=llvm_clang mysql # llvm@15  
 mysqlメーリングリストの諸先輩にご指導頂きインストール出来ました  
 mysql、HomeBrewどちらのバグか分かりませんが、なぜかopenssl@1.1ヘッダーを読み込み  
 openssl@3にリンクする為にエラーになります
