@@ -13,6 +13,8 @@ export HOMEBREW_NO_INSTALL_FROM_API=1
 
 ただ、Xcode.app(10.1)をインストールし起動しないとllvm@12もインストール出来ません
 
+https://developer.apple.com/download/more/ # ここからダウンロード
+
 最初にXcode.appを起動した時に出るライセンス認証ダイアログのOKボタンを押すだけです
 
 brew install llvm@12; その後、
@@ -64,10 +66,15 @@ vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"
 
-brew install --cc=llvm_clang isl
+brew install --cc=llvm_clang isl # islはこれでインストール出来ます
 
-islはこれでインストール出来ますが、gccは通常インストールして下さい</br>
-(詳しく分かりませんが x86_64、i386 コンパイルで違うようです)
+gccは通常インストールして下さい、ただllvm@15をインストールしていると
+
+llvm@15のライブラリにリンクしようとするのでエラーになります
+
+brew unlink llvm@15 # これでllvm@15のライブラリは消えます
+
+gccのインストールが終われば元に戻しましょう brew link llvm@15
 
 \# 2023年6月、llvm@16.0.5 がリリースされました、インストール方法は同じです
 
