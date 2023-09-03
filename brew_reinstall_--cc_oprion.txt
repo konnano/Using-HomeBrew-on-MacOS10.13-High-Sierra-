@@ -1,0 +1,36 @@
+HomeBrewではインストールする時しか --cc オプションが使えません
+通常はそれで良いのですが、まれに依存関係が壊れる事があります
+下位依存されてるフォーミュラを修正しなければならない場合は reinstall を使うのですが
+--cc オプションが必要なフォーミュラには対応出来ません、なので書き換え(追加)します
+
+vim /usr/local/Homebrew/Library/Homebrew/reinstall.rb
+
+リストに追加、24行目
+
+ verbose: false,
+ cc: false, # <= 追加
+ git: false 
+
+リストに追加、50行目
+
+ build_from_source_formulae: build_from_source_formulae,
+ cc:                         cc, # <= 追加
+ git:                        git,
+
+vim /usr/local/Homebrew/Library/Homebrew/cmd/reinstall.rb
+
+リストに追加、67行目
+
+ [:switch, "-g", "--git", {  
+ description: "Create a Git repository, useful for creating patches to the software.",
+ }],
+ [:flag, "--cc=", { description: "cc option" }], # <= 追加
+ ].each do |args|
+
+リストに追加、153行目
+
+ verbose:                    args.verbose?,
+ cc:                         args.cc, # <= 追加
+ git:                        args.git?,
+
+これで reinstall --cc option が使える様になります
