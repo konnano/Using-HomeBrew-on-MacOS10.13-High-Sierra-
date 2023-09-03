@@ -138,7 +138,7 @@ ghostscriptは gccに依存するのでインストールオプションを変�
 
 brew install --cc=gcc-13 ghostscript
 
-HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
+2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
 vim /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
 
 when GNU_GCC_REGEXP  
