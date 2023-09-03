@@ -136,8 +136,14 @@ rust はビルドの順番があるようです --cc=llvm_clangでいきなり�
 
 ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
 
-brew install --cc=gcc-13 ghostscript</br></br>
+brew install --cc=gcc-13 ghostscript
 
+HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
+vim /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
+
+when GNU_GCC_REGEXP  
+&emsp;&emsp;other # <= 書き換え => other.to_sym  
+else
 
 ~~2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました~~
 
