@@ -65,14 +65,6 @@ vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-gccは通常インストールして下さい、ただllvm@15をインストールしていると
-
-llvm@15のライブラリにリンクしようとするのでエラーになります
-
-brew unlink llvm@15 # これでllvm@15のライブラリは消えます
-
-gccのインストールが終われば元に戻しましょう brew link llvm@15
-
 \# 2023年6月、llvm@16.0.5 がリリースされました、インストール方法は同じです
 
 llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
@@ -118,6 +110,14 @@ brew install --cc=llvm_clang node
 rust はビルドの順番があるようです --cc=llvm_clangでいきなりビルド指定するとエラーになります
 
 通常インストールすれば clang, clang-15 と順番にビルドしてくれます</br></br>
+
+gccは通常インストールして下さい、ただllvm@15をインストールしていると
+
+llvm@15のライブラリにリンクしようとするのでエラーになります
+
+brew unlink llvm@15 # これでllvm@15のライブラリは消えます
+
+gccのインストールが終われば元に戻しましょう brew link llvm@15
 
 2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
 
