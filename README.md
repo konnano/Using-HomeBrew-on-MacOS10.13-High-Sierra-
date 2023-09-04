@@ -5,7 +5,7 @@ HomeBrew MacOS10.13は通常のインストールではソースからでもビ�
 
 完全に無理なら諦めますが、なんとかソースなどの書き換えで対応出来そうです
 
-HomeBrew 4.0.0以降の場合は以下の環境変数を設定して下さい
+HomeBrew 4.0.0以降の場合はシェルに以下の環境変数を設定して下さい
 ```
 export HOMEBREW_NO_INSTALL_FROM_API=1
 ```
@@ -27,12 +27,11 @@ vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年3月現在、freetype、jpeg-xl、php、~~mysql~~ などは以下でインストール出来ます
+2023年9月 freetype、jpeg-xl、php、isl などは以下でインストール出来ます
 
-brew install --cc=llvm_clang \<Formula>
+brew install --cc=llvm_clang \<Formula></br></br>
 
-
-nodeやislなどはllvm(llvm@15)が無いとインストール出来ないので書き換えが必要になります
+2023年9月 nodeはllvm(llvm@15)が無いとインストール出来ないので書き換えが必要になります
 
 llvm(llvm@15)のインストールですが、いくつか方法があるようでネタ元のリンクを貼っておきます
 
@@ -64,9 +63,7 @@ vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
 これを以下に書き換えます
 
-"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"
-
-brew install --cc=llvm_clang isl # islはこれでインストール出来ます
+"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
 gccは通常インストールして下さい、ただllvm@15をインストールしていると
 
@@ -118,19 +115,9 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 brew install --cc=llvm_clang node
 
-MacBook Pro Mid 2012 で　npm のアップデートされないので  
-usr/local/lib/node_modules/npm を調べると何故か所有者 root になってました  
-フォルダー内を調べると所有者、破茶滅茶になってるので chown -R で全て自分に変更しました</br></br>
+rust はビルドの順番があるようです --cc=llvm_clangでいきなりビルド指定するとエラーになります
 
-php はllvm(llvm@16.0.5)でビルドすると　/usr/include/os/signpost.hを読み込みヘッダーでエラーが出ます
-
-/usr/include/os/signpost.h 226行目、251行目を nodoと同じ様に書き換えれば良いのですが面倒です
-
-node用に /usr/include/os/signpost.hを置いてるなら　phpのビルドには llvm@15を使いましょう
-
-2023年3月、通常インストールと --cc=llvm_clang を使い分ければMacOS10.13でもまだ使えます
-
-rust はビルドの順番があるようです --cc=llvm_clangでいきなりビルド指定するとエラーになります</br></br>
+通常インストールすれば clang, clang-15 と順番にビルドしてくれます</br></br>
 
 2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
 
@@ -139,6 +126,7 @@ ghostscriptは gccに依存するのでインストールオプションを変�
 brew install --cc=gcc-13 ghostscript
 
 2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
+
 vim /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
 
 when GNU_GCC_REGEXP  
@@ -158,10 +146,6 @@ else
 
 ~~sudo rm /usr/bin/tar</br>~~
 ~~sudo mv /usr/bin/tar_buck /usr/bin/tar~~
-
-~~/usr/local/bin のパスが先に読み込まれ、CUIのみ使用なら以下で使えます~~
-
-~~ln -s /usr/local/bin/gtar /usr/local/bin/tar~~
 
 2023年7月 gnu-tar 1.35 はバグがある様で　configure オプションで  
 --disable-nls で言語サポートを無効にしないとインストールエラーになります  
@@ -195,8 +179,10 @@ subversion のインストールが終われば llvm のリンクを戻して大
 
 brew link llvm@15
 
-2023年8月 mysql 8.1.0のビルドでエラーになります、brew install --cc=llvm_clang mysql # llvm@15  
-mysqlメーリングリストの諸先輩にご指導頂きインストール出来ました  
+2023年9月 mysql 8.1.0のビルドでエラーになります、brew install --cc=llvm_clang mysql # llvm@12以上
+
+mysqlメーリングリストの諸先輩にご指導頂きインストール出来ました
+
 mysql、HomeBrewどちらのバグか分かりませんが、なぜかopenssl@1.1ヘッダーを読み込み  
 openssl@3にリンクする為にエラーになります
 
