@@ -107,9 +107,9 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 brew install --cc=llvm_clang node
 
-rust はビルドの順番があるようです --cc=llvm_clangでいきなりビルド指定するとエラーになります
+~~rust はビルドの順番があるようです --cc=llvm_clangでいきなりビルド指定するとエラーになります~~
 
-通常インストールすれば clang, clang-15 と順番にビルドしてくれます</br></br>
+~~通常インストールすれば clang, clang-15 と順番にビルドしてくれます</br></br>~~
 
 gccは通常インストールして下さい、ただllvm@15をインストールしていると
 
