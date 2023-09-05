@@ -55,7 +55,7 @@ if (cputype == CPU_TYPE_ARM64 && cpusubtype == CPU_SUBTYPE_ARM64E) {
 
 if (cputype == CPU_TYPE_ARM64) {
 
-これでllvm(llvm@15)のインストールが出来ます、その後、
+これで llvm(llvm@15)のインストールが出来ます、その後、
 
 vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
@@ -75,7 +75,7 @@ brew edit node : 36行目、以下をコメントにして下さい
 
 nodeはヘッダーのコピーと書き換えが必要になります
 
-システムに触れるのでSystem Integrity Protection(SIP)を無効にして下さい
+システムに触れるので System Integrity Protection(SIP)を無効にして下さい
 
 cd /usr/include/os
 
