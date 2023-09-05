@@ -132,7 +132,13 @@ brew install --cc=gcc-13 ghostscript</br></br>
 vim /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
 
 when GNU_GCC_REGEXP  
-&emsp;&emsp;other # <= 書き換え => other.to_sym  
+&emsp;&emsp;other  
+else
+
+これを以下に書き換えます
+
+when GNU_GCC_REGEXP  
+&emsp;&emsp;other.to_sym  
 else
 
 ~~2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました~~
@@ -153,7 +159,7 @@ else
 
 --disable-nls で言語サポートを無効にしないとインストールエラーになります
 
-brew edit gnu-tar # 37行目
+brew edit gnu-tar # 37行目に追加
 
 args << if OS.mac?  
 &emsp;&emsp;"--program-prefix=g"  
