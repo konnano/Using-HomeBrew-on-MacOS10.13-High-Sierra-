@@ -31,7 +31,7 @@ vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
 brew install --cc=llvm_clang \<Formula></br></br>
 
-2023年9月 nodeはllvm(llvm@15)が無いとインストール出来ないので書き換えが必要になります
+2023年9月 nodeは llvm(llvm@15)が無いとインストール出来ないので書き換えが必要になります
 
 llvm(llvm@15)のインストールですが、いくつか方法があるようでネタ元のリンクを貼っておきます
 
@@ -178,13 +178,13 @@ brew link llvm@15</br></br>
 
 mysqlメーリングリストの諸先輩にご指導頂きインストール出来ました
 
-mysql、HomeBrewどちらのバグか分かりませんが、なぜかopenssl@1.1ヘッダーを読み込み  
+mysql、HomeBrewどちらのバグか分かりませんが、なぜか openssl@1.1のヘッダーを読み込み  
 openssl@3にリンクする為にエラーになります
 
 mv /usr/local/opt/openssl@1.1/include /usr/local/opt/openssl@1.1/include_buck
 
 これでopenssl@3のヘッダーを読みに行ってくれます
 
-mysql 8.1.0のインストールが終わればopenssl@1.1/includeの場所を戻しておきましょう
+mysql 8.1.0のインストールが終われば openssl@1.1/includeの場所を戻しておきましょう
 
 mv /usr/local/opt/openssl@1.1/include_buck /usr/local/opt/openssl@1.1/include
