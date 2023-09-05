@@ -65,19 +65,7 @@ vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-\# 2023年6月、llvm@16.0.5 がリリースされました、インストール方法は同じです
-
-llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
-
-vim /usr/local/opt/llvm/include/c++/v1/new; # の355行目
-
-return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
-
-これを以下に書き換えます
-
-return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);</br></br>
-
-node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが必要なので llvm 16.0.5が無いないなら
+node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(16.0.6)が無いないなら
 
 brew edit node : 36行目、以下をコメントにして下さい
 
@@ -105,11 +93,23 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 &emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##__VA_ARGS__)
 
-brew install --cc=llvm_clang node
+brew install --cc=llvm_clang node</br></br>
 
-~~rust はビルドの順番があるようです --cc=llvm_clangでいきなりビルド指定するとエラーになります~~
+llvm@16.0.6 がリリースされました、インストール方法は llvm@15 と同じです
 
-~~通常インストールすれば clang, clang-15 と順番にビルドしてくれます</br></br>~~
+llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
+
+vim /usr/local/opt/llvm/include/c++/v1/new; # の355行目
+
+return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
+
+これを以下に書き換えます
+
+return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);</br></br>
+
+rust は llvm(16.0.6) が必要になります configure オプションで llvmのパスを読み込んでくれるので
+
+llvm(16.0.6) があれば通常インストールして下さい</br></br>
 
 gccは通常インストールして下さい、ただllvm@15をインストールしていると
 
@@ -117,13 +117,13 @@ llvm@15のライブラリにリンクしようとするのでエラーになり�
 
 brew unlink llvm@15 # これでllvm@15のライブラリは消えます
 
-gccのインストールが終われば元に戻しましょう brew link llvm@15
+gccのインストールが終われば元に戻しましょう brew link llvm@15</br></br>
 
 2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
 
 ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
 
-brew install --cc=gcc-13 ghostscript
+brew install --cc=gcc-13 ghostscript</br></br>
 
 2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
 
@@ -147,22 +147,16 @@ else
 ~~sudo rm /usr/bin/tar</br>~~
 ~~sudo mv /usr/bin/tar_buck /usr/bin/tar~~
 
-2023年7月 gnu-tar 1.35 はバグがある様で　configure オプションで  
---disable-nls で言語サポートを無効にしないとインストールエラーになります  
+2023年7月 gnu-tar 1.35 はバグがある様で　configure オプションで
+
+--disable-nls で言語サポートを無効にしないとインストールエラーになります
+
 brew edit gnu-tar # 37行目
 
 args << if OS.mac?  
 &emsp;&emsp;"--program-prefix=g"  
 &emsp;&emsp;"--disable-nls"  
 else
-
-2023年6月末　openldap はメイク後、既存のファイルを参照してリンクするようです
-
-アップグレードする場合は置換エラーになるので既存ファイルを削除してアップグレードして下さい
-
-rm /usr/local/etc/openldap/slapd.conf /usr/local/etc/openldap/slapd.ldif
-
-10.13 環境の問題では無い様です　,  https://github.com/orgs/Homebrew/discussions/4586</br></br>
 
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
@@ -172,12 +166,11 @@ clang と clang-15 はアーキテクチャが違うので llvm があるとエ�
 
 subversion をインストールする場合は llvm のリンクを解除してインストールして下さい
 
-brew unlink llvm@15  
-brew install subversion
+brew unlink llvm@15 ; brew install subversion
 
 subversion のインストールが終われば llvm のリンクを戻して大丈夫です
 
-brew link llvm@15
+brew link llvm@15</br></br>
 
 2023年9月 mysql 8.1.0のビルドでエラーになります、brew install --cc=llvm_clang mysql # llvm@12以上
 
@@ -190,5 +183,6 @@ mv /usr/local/opt/openssl@1.1/include /usr/local/opt/openssl@1.1/include_buck
 
 これでopenssl@3のヘッダーを読みに行ってくれます
 
-mysql 8.1.0のインストールが終わればopenssl@1.1/includeの場所戻しときましょう
+mysql 8.1.0のインストールが終わればopenssl@1.1/includeの場所を戻しておきましょう
 
+mv /usr/local/opt/openssl@1.1/include_buck /usr/local/opt/openssl@1.1/include
