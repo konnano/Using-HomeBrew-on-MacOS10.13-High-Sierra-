@@ -15,7 +15,7 @@ Error: no implicit conversion of nil into String
 
 どうも変数が初期化されてないとかのエラーの様な感じがします
 
-vim /usr/local/Homebrew/Library/Homebrew/cleanup.rb
+/usr/local/Homebrew/Library/Homebrew/cleanup.rb
 
 エラー表示されてる各行を調べてみると 275行目で変数宣言されています
 
