@@ -17,7 +17,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 最初にXcode.appを起動した時に出るライセンス認証ダイアログのOKボタンを押すだけです
 
-brew install llvm@12; その後、
+brew install llvm@12 ; その後、
 
 /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
 
@@ -159,7 +159,7 @@ else
 
 --disable-nls で言語サポートを無効にしないとインストールエラーになります
 
-brew edit gnu-tar # 37行目に追加
+brew edit gnu-tar ; # 37行目に追加
 
 args << if OS.mac?  
 &emsp;&emsp;"--program-prefix=g"  
