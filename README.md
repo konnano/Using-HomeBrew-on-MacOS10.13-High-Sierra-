@@ -67,7 +67,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(16.0.6)が無いないなら
 
-brew edit node : 36行目、以下をコメントにして下さい
+brew edit node ; # 36行目、以下をコメントにして下さい
 
 \# on_macos do  
 \# &emsp;&emsp;depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100  
