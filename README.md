@@ -77,9 +77,7 @@ nodeはヘッダーのコピーと書き換えが必要になります
 
 システムに触れるので System Integrity Protection(SIP)を無効にして下さい
 
-cd /usr/include/os
-
-sudo cp /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/os/signpost.h .
+sudo cp /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/os/signpost.h /usr/include/os/
 
 sudo vim /usr/include/os/signpost.h ; # 280行目
 
