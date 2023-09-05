@@ -19,7 +19,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 brew install llvm@12; その後、
 
-vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
+/usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm/bin/#{Regexp.last_match(1)}"
 
@@ -47,7 +47,7 @@ brew install --cc=llvm_clang llvm@15
 
 topコマンドで bsdtar、ruby、cp と動作確認が出来たらmake前にllvmフォルダーに入って
 
-/tmp/llvm...../llvm...../lldb/source/Host/macosx/objcxx/HostInfoMacOSX.mm の236行目
+/tmp/llvm...../llvm...../lldb/source/Host/macosx/objcxx/HostInfoMacOSX.mm # 236行目
 
 if (cputype == CPU_TYPE_ARM64 && cpusubtype == CPU_SUBTYPE_ARM64E) {
 
@@ -57,7 +57,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 これで llvm(llvm@15)のインストールが出来ます、その後、
 
-vim /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # の80行目
+/usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
@@ -99,7 +99,7 @@ llvm@16.0.6 がリリースされました、インストール方法は llvm@15
 
 llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
 
-vim /usr/local/opt/llvm/include/c++/v1/new; # の355行目
+/usr/local/opt/llvm/include/c++/v1/new; # の355行目
 
 return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
 
@@ -129,7 +129,7 @@ brew install --cc=gcc-13 ghostscript</br></br>
 
 2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
 
-vim /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
+/usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
 
 when GNU_GCC_REGEXP  
 &emsp;&emsp;other  
