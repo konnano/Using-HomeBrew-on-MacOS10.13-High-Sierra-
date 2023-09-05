@@ -105,7 +105,9 @@ return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded
 
 これを以下に書き換えます
 
-return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);</br></br>
+return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
+
+php を llvm(16.0.6)でビルドするとエラーになります、特別な理由がなければ llvm@15でビルドしましょう</br></br>
 
 rust は llvm(16.0.6) が必要になります configure オプションで llvmのパスを読み込んでくれるので
 
