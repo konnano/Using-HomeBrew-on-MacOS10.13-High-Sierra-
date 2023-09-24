@@ -180,14 +180,12 @@ brew link llvm@15</br></br>
 
 2023年9月 mysql 8.1.0のビルドでエラーになります、brew install --cc=llvm_clang mysql # llvm@12以上
 
-mysqlメーリングリストの諸先輩にご指導頂きインストール出来ました
-
 mysql、HomeBrewどちらのバグか分かりませんが、なぜか openssl@1.1のヘッダーを読み込み  
 openssl@3にリンクする為にエラーになります
 
 mv /usr/local/opt/openssl@1.1/include /usr/local/opt/openssl@1.1/include_buck
 
-これでopenssl@3のヘッダーを読みに行ってくれます
+これで openssl@3のヘッダーを読みに行ってくれます
 
 mysql 8.1.0のインストールが終われば openssl@1.1/includeの場所を戻しておきましょう
 
