@@ -93,7 +93,7 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 brew install --cc=llvm_clang node</br></br>
 
-llvm@16.0.6 がリリースされました、インストール方法は llvm@15 と同じです
+2023年9月 llvm(17.0.1) がリリースされました、インストール方法は llvm@15 と同じです
 
 llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
 
@@ -105,11 +105,11 @@ return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded
 
 return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
 
-php を llvm(16.0.6)でビルドするとエラーになります、特別な理由がなければ llvm@15でビルドしましょう</br></br>
+php を llvm@16 以降でビルドするとエラーになります、特別な理由がなければ llvm@15でビルドしましょう</br></br>
 
-rust は llvm(16.0.6) が必要になります configure オプションで llvmのパスを読み込んでくれるので
+rust は llvm@16 が必要になります configure オプションで llvm@16のパスを読み込んでくれるので
 
-llvm(16.0.6) があれば通常インストールして下さい</br></br>
+llvm@16 があれば通常インストールして下さい</br></br>
 
 gccは通常インストールして下さい、ただllvm@15をインストールしていると
 
