@@ -31,9 +31,9 @@ brew install llvm@12 ; その後、
 
 brew install --cc=llvm_clang \<Formula></br></br>
 
-2023年9月 nodeは llvm(llvm@15)が無いとインストール出来ないので書き換えが必要になります
+2023年9月 node(20.8.0)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
-llvm(llvm@15)のインストールですが、いくつか方法があるようでネタ元のリンクを貼っておきます
+llvm@15のインストールですが、いくつか方法があるようでネタ元のリンクを貼っておきます
 
 https://stackoverflow.com/questions/69906053/how-to-install-llvm13-with-homerew-on-macos-high-sierra-10-13-6-got-built-tar
 
@@ -65,7 +65,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-node のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(16.0.6)が無いないなら
+node(20.8.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.1)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
 
