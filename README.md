@@ -65,7 +65,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-node(20.0.1) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(20.0.8)が無いないなら
+node(20.0.1) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.1)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
 
@@ -93,7 +93,7 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 brew install --cc=llvm_clang node</br></br>
 
-2023年9月 llvm(20.0.1) がリリースされました、インストール方法は llvm@15 と同じです
+2023年9月 llvm(17.0.1) がリリースされました、インストール方法は llvm@15 と同じです
 
 llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
 
