@@ -47,7 +47,7 @@ brew install --cc=llvm_clang llvm@15
 
 topコマンドで bsdtar、ruby、cp と動作確認が出来たらmake前にllvmフォルダーに入って
 
-/tmp/llvm...../llvm...../lldb/source/Host/macosx/objcxx/HostInfoMacOSX.mm # 236行目
+/tmp/llvmA15...../llvm-project-15.0.7.src/lldb/source/Host/macosx/objcxx/HostInfoMacOSX.mm # 236行目
 
 if (cputype == CPU_TYPE_ARM64 && cpusubtype == CPU_SUBTYPE_ARM64E) {
 
@@ -76,6 +76,8 @@ brew edit node ; # 36行目、以下をコメントにして下さい
 nodeはヘッダーのコピーと書き換えが必要になります
 
 システムに触れるので System Integrity Protection(SIP)を無効にして下さい
+
+https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
 
 sudo cp /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/os/signpost.h /usr/include/os/
 
