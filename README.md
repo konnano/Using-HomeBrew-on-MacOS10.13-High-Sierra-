@@ -97,6 +97,10 @@ brew install --cc=llvm_clang node</br></br>
 
 2023年10月 llvm(17.0.2) がリリースされました、インストール方法は llvm@15 と同じです
 
+何故か iMac(2013)OS10.13 ではビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
+
+01.cmake 02.cmake ファイルを見比べ原因を特定できれば良いのですが ........
+
 llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
 
 /usr/local/opt/llvm/include/c++/v1/new; # の355行目
