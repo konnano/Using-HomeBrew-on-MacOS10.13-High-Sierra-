@@ -105,6 +105,7 @@ CMake Error at /tmp/llvm......../llvm-project-17.0.2.src/compiler-rt/cmake/Modul
 8515   string sub-command REPLACE requires at least four arguments.
 
 ビルドに成功してる iMacで足りない値を表示すると　x86_64-apple-darwin17.7.0 でした  
+cc --version で返ってくる値　Target: x86_64-apple-darwin17.7.0 になります  
 /tmp/llvm......../llvm-project-17.0.2.src/compiler-rt/cmake/Modules/CompilerRTUtil # 370行目に追加
 
 set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
