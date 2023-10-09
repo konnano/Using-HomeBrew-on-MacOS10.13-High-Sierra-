@@ -85,13 +85,13 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 #define os_signpost_event_emit(log, event_id, name, ...) \\  
 &emsp;&emsp;        os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
-&emsp;&emsp;&emsp;                 event_id, name, ##__VA_ARGS__)
+&emsp;&emsp;&emsp;                 event_id, name, ##\_\_VA_ARGS__)
 
 これを以下に書き換えます
 
 #define os_signpost_event_emit(log, event_id, name, ...)  
 &emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
-&emsp;&emsp;&emsp;                 event_id, name, ##__VA_ARGS__)
+&emsp;&emsp;&emsp;                 event_id, name, ##\_\_VA_ARGS__)
 
 brew install --cc=llvm_clang node</br></br>
 
