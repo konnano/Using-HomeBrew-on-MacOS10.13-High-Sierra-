@@ -99,7 +99,15 @@ brew install --cc=llvm_clang node</br></br>
 
 何故か iMac(2013)OS10.13 ではビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
 
-01.cmake 02.cmake ファイルを見比べ原因を特定できれば良いのですが ........
+02.cmakeを確認すると何故か引数が足りないとエラーになっています
+
+CMake Error at /tmp/llvm......../llvm-project-17.0.2.src/compiler-rt/cmake/Modules/CompilerRTUtil     s.cmake:371 (string):
+8515   string sub-command REPLACE requires at least four arguments.
+
+ビルドに成功してる iMacで足りない値を表示すると　x86_64-apple-darwin17.7.0 でした
+/tmp/llvm......../llvm-project-17.0.2.src/compiler-rt/cmake/Modules/CompilerRTUtil # 370行目に追加
+
+set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")
 
 llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
 
