@@ -140,6 +140,14 @@ ghostscriptは gccに依存するのでインストールオプションを変�
 
 brew install --cc=gcc-13 ghostscript</br></br>
 
+shared-mime-info は iBook(2012)OS10.13 なら --cc=llvm_clang でインストール出来ますが  
+iMac(2013)OS10.13 では --cc=llvm_clang でエラーになります
+
+brew install --cc=gcc-13 shared-mime-info
+
+-cc=gcc-13 オプションなら iMac(2013)、 iBook(2012) 共にインストール出来ます  
+この辺りはさっぱり理由が分からず激しく謎です
+
 2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
 
 /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
