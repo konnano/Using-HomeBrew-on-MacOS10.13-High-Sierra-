@@ -124,7 +124,15 @@ php を llvm@16 以降でビルドするとエラーになります、特別な�
 
 rust は llvm@16 が必要になります configure オプションで llvm@16のパスを読み込んでくれるので
 
-llvm@16 があれば通常インストールして下さい</br></br>
+llvm@16 があれば通常インストールして下さい
+
+2023年10月 python-packaging は python@3.12 でエラーになります
+
+brew edit python-packaging
+
+22行目、以下をコメントにして下さい
+
+\# depends_on "python@3.12" => [:build, :test]</br></br>
 
 gccは通常インストールして下さい、ただllvm@15をインストールしていると
 
