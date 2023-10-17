@@ -132,7 +132,15 @@ brew edit python-packaging
 
 22行目、以下をコメントにして下さい
 
-\# depends_on "python@3.12" => [:build, :test]</br></br>
+\# depends_on "python@3.12" => [:build, :test]
+
+2023年10月 libheif はビルド依存する pkg-config が gdk-pixbuf のパスを読み込めずエラーになります
+
+mv /usr/local/Cellar/gdk-pixbuf/2.42.10_1 /usr/local/Cellar/gdk-pixbuf/2.42.10
+
+libheif のインストールが終われば元に戻しましょう
+
+mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.10_1</br></br>
 
 gccは通常インストールして下さい、ただllvm@15をインストールしていると
 
