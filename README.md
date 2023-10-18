@@ -93,7 +93,27 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 &emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##\_\_VA_ARGS__)
 
-brew install --cc=llvm_clang node</br></br>
+brew install --cc=llvm_clang node
+
+OS10.13 では python@3.12 で機能しない部分があります
+
+python-packaging は python@3.12 でエラーになります
+
+brew edit python-packaging
+
+22行目、以下をコメントにして下さい
+
+\# depends_on "python@3.12" => [:build, :test]
+
+sphinx-doc も python@3.12 でエラーが出る場合は
+
+brew edit sphinx-doc # 33行目
+
+depends_on "python@3.12"
+
+これを以下に書き換えます
+
+depends_on "python@3.11"</br></br>
 
 2023年10月 llvm(17.0.2) がリリースされました、インストール方法は llvm@15 と同じです
 
@@ -125,14 +145,6 @@ php を llvm@16 以降でビルドするとエラーになります、特別な�
 rust は llvm@16 が必要になります configure オプションで llvm@16のパスを読み込んでくれるので
 
 llvm@16 があれば通常インストールして下さい
-
-2023年10月 python-packaging は python@3.12 でエラーになります
-
-brew edit python-packaging
-
-22行目、以下をコメントにして下さい
-
-\# depends_on "python@3.12" => [:build, :test]
 
 2023年10月 libheif はビルド依存する pkg-config が gdk-pixbuf のパスを読み込めずエラーになります
 
