@@ -215,6 +215,10 @@ args << if OS.mac?
 &emsp;&emsp;"--disable-nls"  
 else
 
+dpkg は gnu-tar に依存するのですが gtar のパスを探そうとしてエラーになります
+
+ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar</br></br>
+
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
 10.13 純正 clang のアーキテクチャは i386 , clang-15 のアーキテクチャは x86_64 になります
