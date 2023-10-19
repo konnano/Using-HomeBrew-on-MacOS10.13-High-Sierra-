@@ -31,7 +31,7 @@ brew install llvm@12 ; その後、
 
 brew install --cc=llvm_clang \<Formula></br></br>
 
-2023年9月 node(20.8.0)は llvm@15が無いとインストール出来ないので書き換えが必要になります
+2023年10月 node(20.8.1)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
 llvm@15のインストールですが、いくつか方法があるようでネタ元のリンクを貼っておきます
 
@@ -65,7 +65,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-node(20.8.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.2)が無いないなら
+node(20.8.1) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.3)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
 
@@ -115,18 +115,18 @@ depends_on "python@3.12"
 
 depends_on "python@3.11"</br></br>
 
-2023年10月 llvm(17.0.2) がリリースされました、インストール方法は llvm@15 と同じです
+2023年10月 llvm(17.0.3) がリリースされました、インストール方法は llvm@15 と同じです
 
 iMac(2013)OS10.13 ではビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
 
-02.cmakeを確認すると何故か引数が足りないとエラーになっています
+~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると何故か引数が足りないとエラーになっています
 
-CMake Error at /tmp/llvm......../llvm-project-17.0.2.src/compiler-rt/cmake/Modules/CompilerRTUtil     s.cmake:371 (string):
+CMake Error at /tmp/llvm......../llvm-project-17.0.2.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:371 (string):
 8515   string sub-command REPLACE requires at least four arguments.
 
 ビルドに成功してる iMacで足りない値を表示すると　x86_64-apple-darwin17.7.0 でした  
 cc --version で返ってくる値　Target: x86_64-apple-darwin17.7.0 になります  
-/tmp/llvm......../llvm-project-17.0.2.src/compiler-rt/cmake/Modules/CompilerRTUtil # 370行目に追加
+/tmp/llvm......../llvm-project-17.0.3.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake # 370行目に追加
 
 set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
