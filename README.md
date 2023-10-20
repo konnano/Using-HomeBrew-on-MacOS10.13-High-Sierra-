@@ -221,6 +221,8 @@ ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar</br
 
 ronn などの gem を使うフォーミュラはバージョンが古くエラーになるので、新しい gem を使います
 
+brew install ruby
+
 brew edit ronn # 37行目
 
 system "gem", "build", "ronn.gemspec"  
