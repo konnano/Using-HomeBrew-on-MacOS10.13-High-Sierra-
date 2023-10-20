@@ -219,6 +219,18 @@ dpkg は gnu-tar に依存するのですが gtar のパスを探そうとして
 
 ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar</br></br>
 
+ronn などの gem を使うフォーミュラは標準バージョンが古いので新しい gem を使います
+
+brew edit ronn # 37行目
+
+system "gem", "build", "ronn.gemspec"  
+system "gem", "install", "ronn-#{version}.gem"
+
+これを以下に書き換え
+
+system "/usr/local/opt/ruby/bin/gem", "build", "ronn.gemspec"  
+system "/usr/local/opt/ruby/bin/gem", "install", "ronn-#{version}.gem"
+
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
 10.13 純正 clang のアーキテクチャは i386 , clang-15 のアーキテクチャは x86_64 になります
