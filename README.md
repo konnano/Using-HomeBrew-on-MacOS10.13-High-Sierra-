@@ -219,7 +219,7 @@ dpkg は gnu-tar に依存するのですが gtar のパスを探そうとして
 
 ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar</br></br>
 
-ronn などの gem を使うフォーミュラはバージョンが古いのでエラーになるので、新しい gem を使います
+ronn などの gem を使うフォーミュラはバージョンが古くエラーになるので、新しい gem を使います
 
 brew edit ronn # 37行目
 
