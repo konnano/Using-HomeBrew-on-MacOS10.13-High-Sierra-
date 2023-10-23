@@ -223,6 +223,14 @@ ronn などの gem を使うフォーミュラはバージョンが古くエラ�
 
 brew install ruby
 
+ruby はビルド依存に rust を使うのですが gem の為だけにインストールは面倒です  
+ruby@3.1 の gem はバージョンが同じなので ruby@3.1 で行けそうですが
+
+rdiscount.c:3:10: fatal error: 'ruby.h' file not found  
+#include "ruby.h"  
+         ^~~~~~~~  
+ruby@3.1 だと何故か ruby.h が見つからないそうでエラーになります
+
 brew edit ronn # 37行目
 
 system "gem", "build", "ronn.gemspec"  
