@@ -29,7 +29,10 @@ brew install llvm@12 ; その後、
 
 2023年9月 freetype、jpeg-xl、php、isl などは以下でインストール出来ます
 
-brew install --cc=llvm_clang \<Formula></br></br>
+brew install --cc=llvm_clang \<Formula>
+
+--cc オプションは指定したフォーミュラにのみ有効で依存するフォーミュラには動作しません  
+なので依存するフォーミュラに --cc オプションが必要な場合は個別にインストールします</br></br>
 
 2023年10月 node(21.0.0)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
