@@ -228,8 +228,11 @@ ruby@3.1 の gem はバージョンが同じなので ruby@3.1 で行けそう�
 
 rdiscount.c:3:10: fatal error: 'ruby.h' file not found  
 #include "ruby.h"  
-         ^~~~~~~~  
-ruby@3.1 だと何故か ruby.h が見つからないそうでエラーになります
+&emsp;&emsp;&emsp;&emsp;^~~~~~~~  
+ruby@3.1 だと何故か ruby.h が見つからないそうでエラーになります  
+--with-opt-include=/usr/local/opt/ruby@3.1/include オプションでヘッダーを読み込ませても  
+/usr/local/Cellar/ruby@3.1/3.1.4/lib/ruby/3.1.0/rubygems/ 以下でエラーになります  
+この辺りは ruby 詳しくないのでわかりません
 
 brew edit ronn # 37行目
 
