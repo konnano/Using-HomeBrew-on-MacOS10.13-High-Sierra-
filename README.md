@@ -233,7 +233,7 @@ rdiscount.c:3:10: fatal error: 'ruby.h' file not found
 #include "ruby.h"  
 &emsp;&emsp;&emsp;&emsp;^~~~~~~~  
 ruby@3.1 だと何故か ruby.h が見つからないそうでエラーになります  
--- --with-opt-include=/usr/local/opt/ruby@3.1/include/ruby-3.1.0 オプションでヘッダーを読み込ませてもエラーです 
+-- --with-opt-include=/usr/local/opt/ruby@3.1/include/ruby-3.1.0 オプションでヘッダーを指定してもエラーです 
 
 brew edit ronn # 37行目
 
