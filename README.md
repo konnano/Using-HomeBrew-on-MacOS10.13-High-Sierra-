@@ -9,7 +9,7 @@ HomeBrew 4.0.0以降の場合はシェルに以下の環境変数を設定して
 ```
 export HOMEBREW_NO_INSTALL_FROM_API=1
 ```
-まず、llvm@12 これは絶対必要で通常インストール出来るフォーミュラです
+まず、llvm@12 これは必要で通常インストール出来るフォーミュラです
 
 ただ、Xcode.app(10.1)をインストールし起動しないとllvm@12もインストール出来ません
 
@@ -68,7 +68,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-node(21.1.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.3)が無いないなら
+node(21.1.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.4)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
 
@@ -118,7 +118,7 @@ depends_on "python@3.12"
 
 depends_on "python@3.11"</br></br>
 
-2023年10月 llvm(17.0.3) がリリースされました、インストール方法は llvm@15 と同じです
+2023年11月 llvm(17.0.4) がリリースされました、インストール方法は llvm@15 と同じです
 
 iMac(2013)OS10.13 ではビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
 
@@ -147,7 +147,7 @@ php を llvm@16 以降でビルドするとエラーになります、特別な�
 
 rust は llvm@16 が必要になります configure オプションで llvm@16のパスを読み込んでくれるので
 
-llvm@16 があれば通常インストールして下さい
+llvm@16 があれば通常インストールして下さい<br/><br/>
 
 2023年10月 libheif はビルド依存する pkg-config が gdk-pixbuf のパスを読み込めずエラーになります
 
@@ -243,7 +243,7 @@ system "gem", "install", "ronn-#{version}.gem"
 これを以下に書き換え
 
 system "/usr/local/opt/ruby/bin/gem", "build", "ronn.gemspec"  
-system "/usr/local/opt/ruby/bin/gem", "install", "ronn-#{version}.gem"
+system "/usr/local/opt/ruby/bin/gem", "install", "ronn-#{version}.gem"<br/><br/>
 
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
