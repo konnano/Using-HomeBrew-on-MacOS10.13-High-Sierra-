@@ -189,19 +189,19 @@ brew install --cc=gcc-13 shared-mime-info
 -cc=gcc-13 オプションなら iMac(2013)、 iBook(2012) 共にインストール出来ます  
 この辺りはさっぱり理由が分からず激しく謎です
 
-2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい  
+修正されました ~~2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい~~  
 
-/usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目 
+~~/usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目~~ 
 
-when GNU_GCC_REGEXP  
-&emsp;&emsp;other  
-else
+~~when GNU_GCC_REGEXP~~  
+~~&emsp;&emsp;other~~  
+~~else~~
 
-これを以下に書き換えます
+~~これを以下に書き換えます~~
 
-when GNU_GCC_REGEXP  
-&emsp;&emsp;other.to_sym  
-else
+~~when GNU_GCC_REGEXP~~  
+~~&emsp;&emsp;other.to_sym~~  
+~~else~~
 
 ~~2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました~~
 
