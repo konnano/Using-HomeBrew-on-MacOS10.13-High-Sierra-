@@ -1,0 +1,29 @@
+修正された書庫です
+
+2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい 
+
+/usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目
+
+when GNU_GCC_REGEXP
+  other
+else
+
+これを以下に書き換えます
+
+when GNU_GCC_REGEXP 
+  other.to_sym
+else
+
+2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
+
+brew install gnu-tar
+
+/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます
+
+sudo mv /usr/bin/tar /usr/bin/tar_buck</br>
+sudo ln -s /usr/local/bin/gtar /usr/bin/tar
+
+目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう
+
+sudo rm /usr/bin/tar</br>
+sudo mv /usr/bin/tar_buck /usr/bin/tar
