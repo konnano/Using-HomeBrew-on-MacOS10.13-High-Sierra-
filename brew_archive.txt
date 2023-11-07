@@ -20,7 +20,7 @@ brew install gnu-tar
 
 /usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます
 
-sudo mv /usr/bin/tar /usr/bin/tar_buck</br>
+sudo mv /usr/bin/tar /usr/bin/tar_buck
 sudo ln -s /usr/local/bin/gtar /usr/bin/tar
 
 目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう
