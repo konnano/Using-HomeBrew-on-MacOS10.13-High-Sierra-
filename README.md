@@ -81,7 +81,7 @@ BuildError: Failed executing: make
 5\. shell  
 Choose an action: 5  
 When you exit this shell, you will return to the menu.  
-shin-no-MacBook-Pro%vim src/unix/fs.c # 85行目  
+[MacBook-Pro] % vim src/unix/fs.c # 85行目  
 
 \#if defined(\_\_CYGWIN\_\_) ||
 
@@ -89,9 +89,9 @@ shin-no-MacBook-Pro%vim src/unix/fs.c # 85行目
 
 \#if defined(\_\_APPLE\_\_) ||
 
-shin-no-MacBook-Pro% make  
-shin-no-MacBook-Pro% make install  
-shin-no-MacBook-Pro% exit  
+[MacBook-Pro] % make  
+[MacBook-Pro] % make install  
+[MacBook-Pro] % exit  
 1\. raise  
 2\. ignore  
 3\. backtrace  
