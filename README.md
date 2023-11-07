@@ -99,6 +99,18 @@ When you exit this shell, you will return to the menu.
 5\. shell  
 Choose an action: 2
 
+libuv で ModuleNotFoundError: No module named 'packaging' エラーが出る場合
+
+mkdir ~/.pip  
+vim ~/.pip/pip.conf # 以下２行を書く
+
+[global]  
+break-system-packages = true
+
+cd /usr/local/Cellar/python@3.12/3.12.0/bin  
+./python3.12 -m pip install --upgrade pip  
+./python3.12 -m pip install 'packaging'<br/><br/>
+
 node(21.1.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.4)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
