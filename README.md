@@ -68,6 +68,37 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
+libuv は node に依存されるのですがヘッダーが読み込まれずエラーになります  
+ビルドが速いので --debug オプションを使います
+
+brew install --debug libuv
+
+BuildError: Failed executing: make  
+1\. raise  
+2\. ignore  
+3\. backtrace  
+4\. irb  
+5\. shell  
+Choose an action: 5  
+When you exit this shell, you will return to the menu.  
+shin-no-MacBook-Pro%vim src/unix/fs.c # 85行目  
+
+\#if defined(\_\_CYGWIN\_\_) ||
+
+以下に書き換え
+
+\#if defined(\_\_APPLE\_\_) ||
+
+shin-no-MacBook-Pro% make  
+shin-no-MacBook-Pro% make install  
+shin-no-MacBook-Pro% exit  
+1\. raise  
+2\. ignore  
+3\. backtrace  
+4\. irb  
+5\. shell  
+Choose an action: 2
+
 node(21.1.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.4)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
@@ -187,35 +218,7 @@ iMac(2013)OS10.13 では --cc=llvm_clang でエラーになります
 brew install --cc=gcc-13 shared-mime-info
 
 -cc=gcc-13 オプションなら iMac(2013)、 iBook(2012) 共にインストール出来ます  
-この辺りはさっぱり理由が分からず激しく謎です
-
-修正されました ~~2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい~~  
-
-~~/usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目~~ 
-
-~~when GNU_GCC_REGEXP~~  
-~~&emsp;&emsp;other~~  
-~~else~~
-
-~~これを以下に書き換えます~~
-
-~~when GNU_GCC_REGEXP~~  
-~~&emsp;&emsp;other.to_sym~~  
-~~else~~
-
-~~2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました~~
-
-~~brew install gnu-tar~~
-
-~~/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます~~
-
-~~sudo mv /usr/bin/tar /usr/bin/tar_buck</br>~~
-~~sudo ln -s /usr/local/bin/gtar /usr/bin/tar~~
-
-~~目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう~~
-
-~~sudo rm /usr/bin/tar</br>~~
-~~sudo mv /usr/bin/tar_buck /usr/bin/tar~~
+この辺りはさっぱり理由が分からず激しく謎です<br/><br/>
 
 2023年7月 gnu-tar 1.35 はバグがある様で　configure オプションで
 
