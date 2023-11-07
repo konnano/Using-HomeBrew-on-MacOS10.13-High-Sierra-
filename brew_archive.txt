@@ -15,8 +15,8 @@ when GNU_GCC_REGEXP
 else
 
 2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
-
 brew install gnu-tar
+System Integrity Protection(SIP)を無効にして下さい
 
 /usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます
 
@@ -25,5 +25,5 @@ sudo ln -s /usr/local/bin/gtar /usr/bin/tar
 
 目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう
 
-sudo rm /usr/bin/tar</br>
+sudo rm /usr/bin/tar
 sudo mv /usr/bin/tar_buck /usr/bin/tar
