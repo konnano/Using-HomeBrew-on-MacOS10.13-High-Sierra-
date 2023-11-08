@@ -69,6 +69,7 @@ if (cputype == CPU_TYPE_ARM64) {
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
 libuv は node に依存されるのですがヘッダーが読み込まれずエラーになります  
+\# issues に書きましたが作者に削除されました、対応予定はなさそうです  
 ビルドが速いので --debug オプションを使います
 
 brew install --debug libuv
