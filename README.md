@@ -70,6 +70,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 libuv は node に依存されるのですがヘッダーが読み込まれずエラーになります  
 \# issues に書きましたが作者に削除されました、サポートOS以外の対応はなさそうです  
+make check で2ヶ所エラーが出ますが、そもそもビルドのサポートがされておらず OS14.0 でもエラーが出ます  
 ビルドが速いので --debug オプションを使います
 
 brew install --debug libuv
