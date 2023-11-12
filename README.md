@@ -68,9 +68,8 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-libuv は node に依存されるのですがヘッダーが読み込まれずエラーになります  
-\# issues に書きましたが作者に削除されました、サポートOS以外の対応はなさそうです  
-make check でエラーが出ます、10.15以前は preadv 関数がないのでバグになります
+libuv は node に依存されるのですが preadv 関数がないのでエラーになります  
+インストール出来ますが、10.15以前は preadv 関数がないのでバグになります
 
 ビルドが速いので --debug オプションを使います
 
@@ -84,16 +83,8 @@ BuildError: Failed executing: make
 5\. shell  
 Choose an action: 5  
 When you exit this shell, you will return to the menu.  
-[MacBook-Pro] % vim src/unix/fs.c # 85行目  
-
-\#if defined(\_\_CYGWIN\_\_) ||
-
-以下に書き換え
-
-\#if defined(\_\_APPLE\_\_) ||
-
+[MacBook-Pro] % vim +%s/CYGWIN/APPLE/ +wq src/unix/fs.c  
 [MacBook-Pro] % make  
-[MacBook-Pro] % make install  
 [MacBook-Pro] % exit  
 1\. raise  
 2\. ignore  
