@@ -218,13 +218,9 @@ ghostscriptは gccに依存するのでインストールオプションを変�
 
 brew install --cc=gcc-13 ghostscript</br></br>
 
-shared-mime-info は iBook(2012)OS10.13 なら --cc=llvm_clang でインストール出来ますが  
-iMac(2013)OS10.13 では --cc=llvm_clang でエラーになります
+shared-mime-info も --cc=gcc-13 オプションを使って下さい
 
-brew install --cc=gcc-13 shared-mime-info
-
--cc=gcc-13 オプションなら iMac(2013)、 iBook(2012) 共にインストール出来ます  
-この辺りはさっぱり理由が分からず激しく謎です<br/><br/>
+brew install --cc=gcc-13 shared-mime-info<br/><br/>
 
 2023年7月 gnu-tar 1.35 はバグがある様で　configure オプションで
 
