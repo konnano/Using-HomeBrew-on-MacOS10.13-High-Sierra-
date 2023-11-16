@@ -69,7 +69,7 @@ if (cputype == CPU_TYPE_ARM64) {
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
 libuv は node に依存されるのですが preadv 関数等がないのでエラーになります  
-インストール出来ますが、10.15以前には libuv ライブラリにバグが残ります
+インストール出来ますが、10.15以前には libuv I/O ライブラリにバグが残ります
 
 ビルドが速いので --debug オプションを使います
 
