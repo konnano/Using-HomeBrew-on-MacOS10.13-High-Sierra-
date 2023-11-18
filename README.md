@@ -237,18 +237,9 @@ dpkg は gnu-tar に依存するのですが gtar のパスを探そうとして
 
 ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar</br></br>
 
-ronn などの gem を使うフォーミュラはバージョンが古くエラーになるので、新しい gem を使います
+ronn などの gem を使うフォーミュラは、新しい gem を使います
 
 brew install ruby
-
-ruby はビルド依存に rust を使うのですが gem の為だけにインストールは面倒です  
-ruby@3.1 の gem はバージョンが同じなので ruby@3.1 で行けそうですが
-
-rdiscount.c:3:10: fatal error: 'ruby.h' file not found  
-#include "ruby.h"  
-&emsp;&emsp;&emsp;&emsp;^~~~~~~~  
-ruby@3.1 だと何故か ruby.h が見つからないそうでエラーになります  
--- --with-opt-include=/usr/local/opt/ruby@3.1/include/ruby-3.1.0 オプションでヘッダーを指定してもエラーです 
 
 brew edit ronn # 37行目
 
@@ -258,7 +249,9 @@ system "gem", "install", "ronn-#{version}.gem"
 これを以下に書き換え
 
 system "/usr/local/opt/ruby/bin/gem", "build", "ronn.gemspec"  
-system "/usr/local/opt/ruby/bin/gem", "install", "ronn-#{version}.gem"<br/><br/>
+system "/usr/local/opt/ruby/bin/gem", "install", "ronn-#{version}.gem"
+
+brew install ronn<br/><br/>
 
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
