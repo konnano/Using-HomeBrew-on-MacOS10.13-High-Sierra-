@@ -192,9 +192,9 @@ return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __roun
 
 php を llvm@16 以降でビルドするとエラーになります、特別な理由がなければ llvm@15でビルドしましょう</br></br>
 
-rust は llvm@16 が必要になります configure オプションで llvm@16のパスを読み込んでくれるので
+rust は llvm が必要になります configure オプションで llvm のパスを読み込んでくれるので
 
-llvm@16 があれば通常インストールして下さい<br/><br/>
+llvm があれば通常インストールして下さい<br/><br/>
 
 2023年10月 libheif はビルド依存する pkg-config が gdk-pixbuf のパスを読み込めずエラーになります
 
