@@ -96,7 +96,7 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 &emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##\_\_VA_ARGS__)
 
-brew install --cc=llvm_clang node
+brew install --cc=llvm_clang node<br/><br/>
 
 OS10.13 では python@3.12 で機能しない部分があります
 
