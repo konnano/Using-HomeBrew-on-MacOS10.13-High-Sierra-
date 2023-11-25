@@ -14,7 +14,7 @@ when GNU_GCC_REGEXP
   other.to_sym
 else
 
-2023年１０月 libuv は node に依存されるのですが preadv/pwritev が無いのでエラーになります
+2023年１1月 libuv は node に依存されるのですが preadv/pwritev が無いのでエラーになります
 インストール出来ますが、10.15以前には libuv I/O ライブラリにバグが残ります
 
 ビルドが速いので --debug オプションを使います
