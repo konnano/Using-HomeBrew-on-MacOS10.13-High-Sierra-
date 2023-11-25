@@ -14,6 +14,31 @@ when GNU_GCC_REGEXP
   other.to_sym
 else
 
+2023年１０月 libuv は node に依存されるのですが preadv/pwritev が無いのでエラーになります
+インストール出来ますが、10.15以前には libuv I/O ライブラリにバグが残ります
+
+ビルドが速いので --debug オプションを使います
+
+brew install --debug libuv
+
+BuildError: Failed executing: make
+1. raise
+2. ignore
+3. backtrace
+4. irb
+5. shell
+Choose an action: 5
+When you exit this shell, you will return to the menu.
+[MacBook-Pro] % vim +%s/CYGWIN/APPLE/ +wq src/unix/fs.c
+[MacBook-Pro] % make
+[MacBook-Pro] % exit
+1. raise
+2. ignore
+3. backtrace
+4. irb
+5. shell
+Choose an action: 2
+
 2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
 brew install gnu-tar
 System Integrity Protection(SIP)を無効にして下さい
