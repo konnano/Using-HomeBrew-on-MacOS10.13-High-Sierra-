@@ -68,43 +68,6 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-libuv は node に依存されるのですが preadv 関数等がないのでエラーになります  
-インストール出来ますが、10.15以前には libuv I/O ライブラリにバグが残ります
-
-ビルドが速いので --debug オプションを使います
-
-brew install --debug libuv
-
-BuildError: Failed executing: make  
-1\. raise  
-2\. ignore  
-3\. backtrace  
-4\. irb  
-5\. shell  
-Choose an action: 5  
-When you exit this shell, you will return to the menu.  
-[MacBook-Pro] % vim +%s/CYGWIN/APPLE/ +wq src/unix/fs.c  
-[MacBook-Pro] % make  
-[MacBook-Pro] % exit  
-1\. raise  
-2\. ignore  
-3\. backtrace  
-4\. irb  
-5\. shell  
-Choose an action: 2
-
-libuv で ModuleNotFoundError: No module named 'packaging' エラーが出る場合
-
-mkdir ~/.pip  
-vim ~/.pip/pip.conf # 以下２行を書く
-
-[global]  
-break-system-packages = true
-
-cd /usr/local/Cellar/python@3.12/3.12.0/bin  
-./python3.12 -m pip install --upgrade pip  
-./python3.12 -m pip install 'packaging'<br/><br/>
-
 node(21.2.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(17.0.5)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
@@ -153,7 +116,19 @@ depends_on "python@3.12"
 
 これを以下に書き換えます
 
-depends_on "python@3.11"</br></br>
+depends_on "python@3.11"
+
+python 関係で ModuleNotFoundError: No module named 'packaging' エラー等が出る場合
+
+mkdir ~/.pip  
+vim ~/.pip/pip.conf # 以下２行を書く
+
+[global]  
+break-system-packages = true
+
+cd /usr/local/Cellar/python@3.12/3.12.0/bin  
+./python3.12 -m pip install --upgrade pip  
+./python3.12 -m pip install 'packaging'<br/><br/>
 
 2023年11月 Homebrew はシステム標準の python3 を使うようになりました
 
