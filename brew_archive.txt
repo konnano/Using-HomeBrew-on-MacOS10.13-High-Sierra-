@@ -1,5 +1,19 @@
 修正された書庫です
 
+2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
+brew install gnu-tar
+System Integrity Protection(SIP)を無効にして下さい
+
+/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます
+
+sudo mv /usr/bin/tar /usr/bin/tar_buck
+sudo ln -s /usr/local/bin/gtar /usr/bin/tar
+
+目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう
+
+sudo rm /usr/bin/tar
+sudo mv /usr/bin/tar_buck /usr/bin/tar
+
 2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい 
 
 /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目
@@ -13,6 +27,19 @@ else
 when GNU_GCC_REGEXP 
   other.to_sym
 else
+
+2023年9月 mysql 8.1.0のビルドでエラーになります、brew install --cc=llvm_clang mysql # llvm@12以上
+
+mysql、HomeBrewどちらのバグか分かりませんが、なぜか openssl@1.1のヘッダーを読み込み
+openssl@3にリンクする為にエラーになります
+
+mv /usr/local/opt/openssl@1.1/include /usr/local/opt/openssl@1.1/include_buck
+
+これで openssl@3のヘッダーを読みに行ってくれます
+
+mysql 8.1.0のインストールが終われば openssl@1.1/includeの場所を戻しておきましょう
+
+mv /usr/local/opt/openssl@1.1/include_buck /usr/local/opt/openssl@1.1/include
 
 2023年１1月 libuv は node に依存されるのですが preadv/pwritev が無いのでエラーになります
 インストール出来ますが、10.15以前には libuv I/O ライブラリにバグが残ります
@@ -38,17 +65,3 @@ When you exit this shell, you will return to the menu.
 4. irb
 5. shell
 Choose an action: 2
-
-2023年5月 tar のバージョンが古い為に  doxygen のファイル展開すら出来なくなりました
-brew install gnu-tar
-System Integrity Protection(SIP)を無効にして下さい
-
-/usr/bin/tar は /usr/bin/bsdtar のシンボリックです、元があるので消えても復元できます
-
-sudo mv /usr/bin/tar /usr/bin/tar_buck
-sudo ln -s /usr/local/bin/gtar /usr/bin/tar
-
-目的のフォーミュラーを展開しインストール出来れば tar を元に戻しましょう
-
-sudo rm /usr/bin/tar
-sudo mv /usr/bin/tar_buck /usr/bin/tar
