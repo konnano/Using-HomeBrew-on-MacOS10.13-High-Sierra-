@@ -27,7 +27,7 @@ brew install llvm@12 ; その後、
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年9月 freetype、jpeg-xl、php、isl などは以下でインストール出来ます
+2023年11月 freetype、jpeg-xl、php、isl、mysql などは以下でインストール出来ます
 
 brew install --cc=llvm_clang \<Formula>
 
@@ -240,17 +240,4 @@ brew unlink llvm@15 ; brew install subversion
 
 subversion のインストールが終われば llvm のリンクを戻して大丈夫です
 
-brew link llvm@15</br></br>
-
-2023年9月 mysql 8.1.0のビルドでエラーになります、brew install --cc=llvm_clang mysql # llvm@12以上
-
-mysql、HomeBrewどちらのバグか分かりませんが、なぜか openssl@1.1のヘッダーを読み込み  
-openssl@3にリンクする為にエラーになります
-
-mv /usr/local/opt/openssl@1.1/include /usr/local/opt/openssl@1.1/include_buck
-
-これで openssl@3のヘッダーを読みに行ってくれます
-
-mysql 8.1.0のインストールが終われば openssl@1.1/includeの場所を戻しておきましょう
-
-mv /usr/local/opt/openssl@1.1/include_buck /usr/local/opt/openssl@1.1/include
+brew link llvm@15
