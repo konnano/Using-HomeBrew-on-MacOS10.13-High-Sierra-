@@ -100,7 +100,7 @@ brew install --cc=llvm_clang node<br/><br/>
 
 OS10.13 では python@3.12 で機能しない部分があります
 
-python-packaging は python@3.12 でエラーになります
+python-packaging は python@3.12 でエラーが出る場合は
 
 brew edit python-packaging
 
