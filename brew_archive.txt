@@ -65,3 +65,13 @@ When you exit this shell, you will return to the menu.
 4. irb
 5. shell
 Choose an action: 2
+
+2023年11月 Homebrew はシステム標準の python3 を使うようになりました
+
+librsvg や gdk-pixbuf などのインストールで必要になります
+
+/usr/local/bin/python3 は python@3.11 のシンボリックです
+
+ここでも System Integrity Protection(SIP)を無効にして下さい
+
+ln -s /usr/local/bin/python3 /usr/bin/
