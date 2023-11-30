@@ -130,16 +130,6 @@ cd /usr/local/Cellar/python@3.12/3.12.0/bin
 ./python3.12 -m pip install --upgrade pip  
 ./python3.12 -m pip install 'packaging'<br/><br/>
 
-2023年11月 Homebrew はシステム標準の python3 を使うようになりました
-
-librsvg や gdk-pixbuf などのインストールで必要になります
-
-/usr/local/bin/python3 は python@3.11 のシンボリックです
-
-ここでも System Integrity Protection(SIP)を無効にして下さい
-
-ln -s /usr/local/bin/python3 /usr/bin/<br/><br/>
-
 2023年11月 llvm(17.0.6) がリリースされました、インストール方法は llvm@15 と同じです
 
 iMac(2013)OS10.13 ではビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
