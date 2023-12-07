@@ -132,7 +132,29 @@ cd /usr/local/Cellar/python@3.12/3.12.0/bin
 
 2023年11月 llvm(17.0.6) がリリースされました、インストール方法は llvm@15 と同じです
 
-iMac(2013)OS10.13 ではビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
+llvm(17.0.6) 関連のインストールは依存関係が少しややこしいです
+
+vim は ruby に依存し ruby のビルドに rust が必要になります
+
+rust は llvm に依存し llvm のビルドに ninja が必要になります
+
+ninja は python3 に依存するのですが Homebrew では依存されず  
+system関数で呼び出される為、システムの python3 を使用します
+
+Apple にサポートされた OS は Xcode をインストールすれば  
+自動で python3 がシステムにインストールされますが  
+10.13 のシステムには python3 が無いので Homebrew からインストールします
+
+brew install python@3.11
+
+ここでも System Integrity Protection(SIP) を無効にします
+
+sudo ln -s /usr/local/bin/python3 /usr/bin/
+
+brew install ninja
+
+llvm(17.0.6) のビルドは llvm@15 と同じです、ただ私の環境では何故か  
+iMac(2013)OS10.13 はビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
 
 ~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると何故か引数が足りないとエラーになっています
 
@@ -156,10 +178,6 @@ return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded
 return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
 
 php を llvm@16 以降でビルドするとエラーになります、特別な理由がなければ llvm@15でビルドしましょう</br></br>
-
-rust は llvm が必要になります configure オプションで llvm のパスを読み込んでくれるので
-
-llvm があれば通常インストールして下さい<br/><br/>
 
 2023年10月 libheif はビルド依存する pkg-config が gdk-pixbuf のパスを読み込めずエラーになります
 
