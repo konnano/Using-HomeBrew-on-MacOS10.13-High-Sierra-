@@ -156,7 +156,7 @@ brew install ninja
 llvm(17.0.6) のビルドは llvm@15 と同じです、ただ私の環境では何故か  
 iMac(2013)OS10.13 はビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
 
-~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると何故か引数が足りないとエラーになっています
+~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると引数が足りないエラーになっています
 
 CMake Error at /tmp/llvm......../llvm-project-17.0.6.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:371 (string):
 8515   string sub-command REPLACE requires at least four arguments.
