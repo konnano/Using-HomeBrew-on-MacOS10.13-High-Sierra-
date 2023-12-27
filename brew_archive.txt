@@ -41,7 +41,7 @@ mysql 8.1.0のインストールが終われば openssl@1.1/includeの場所を�
 
 mv /usr/local/opt/openssl@1.1/include_buck /usr/local/opt/openssl@1.1/include
 
-2023年１1月 libuv は node に依存されるのですが preadv/pwritev が無いのでエラーになります
+2023年11月 libuv は node に依存されるのですが preadv/pwritev が無いのでエラーになります
 インストール出来ますが、10.15以前には libuv I/O ライブラリにバグが残ります
 
 ビルドが速いので --debug オプションを使います
@@ -65,3 +65,18 @@ When you exit this shell, you will return to the menu.
 4. irb
 5. shell
 Choose an action: 2
+
+2023年12月 ninja は python3 に依存するのですが Homebrew では依存されず
+system関数で呼び出される為、システムの python3 を使用します
+
+Apple にサポートされた OS は Xcode をインストールすれば
+自動で python3 がシステムにインストールされますが
+10.13 のシステムには python3 が無いので Homebrew からインストールします
+
+brew install python@3.11
+
+ここでも System Integrity Protection(SIP) を無効にします
+
+sudo ln -s /usr/local/bin/python3 /usr/bin/
+
+brew install ninja
