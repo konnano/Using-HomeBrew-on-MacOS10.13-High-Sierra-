@@ -29,6 +29,22 @@ dpkg は gnu-tar に依存するのですが gtar のパスを探そうとして
 
 ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar
 
+ronn などの gem を使うフォーミュラは、新しい gem を使います
+
+brew install ruby
+
+brew edit ronn # 37行目
+
+system "gem", "build", "ronn.gemspec"
+system "gem", "install", "ronn-#{version}.gem"
+
+これを以下に書き換え
+
+system "/usr/local/opt/ruby/bin/gem", "build", "ronn.gemspec"
+system "/usr/local/opt/ruby/bin/gem", "install", "ronn-#{version}.gem"
+
+brew install ronn
+
 2023年9月 HomeBrewにバグがある為、--cc=gcc-13 が使えないので書き換えて下さい 
 
 /usr/local/Homebrew/Library/Homebrew/extend/ENV/shared.rb # 351行目
