@@ -190,22 +190,6 @@ shared-mime-info も --cc=gcc-13 オプションを使って下さい
 
 brew install --cc=gcc-13 shared-mime-info<br/><br/>
 
-ronn などの gem を使うフォーミュラは、新しい gem を使います
-
-brew install ruby
-
-brew edit ronn # 37行目
-
-system "gem", "build", "ronn.gemspec"  
-system "gem", "install", "ronn-#{version}.gem"
-
-これを以下に書き換え
-
-system "/usr/local/opt/ruby/bin/gem", "build", "ronn.gemspec"  
-system "/usr/local/opt/ruby/bin/gem", "install", "ronn-#{version}.gem"
-
-brew install ronn<br/><br/>
-
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
 10.13 純正 clang のアーキテクチャは i386 , clang-15 のアーキテクチャは x86_64 になります
