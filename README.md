@@ -190,10 +190,6 @@ shared-mime-info も --cc=gcc-13 オプションを使って下さい
 
 brew install --cc=gcc-13 shared-mime-info<br/><br/>
 
-dpkg は gnu-tar に依存するのですが gtar のパスを探そうとしてエラーになります
-
-ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar</br></br>
-
 ronn などの gem を使うフォーミュラは、新しい gem を使います
 
 brew install ruby
