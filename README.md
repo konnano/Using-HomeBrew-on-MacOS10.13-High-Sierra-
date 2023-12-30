@@ -190,17 +190,6 @@ shared-mime-info も --cc=gcc-13 オプションを使って下さい
 
 brew install --cc=gcc-13 shared-mime-info<br/><br/>
 
-2023年7月 gnu-tar 1.35 はバグがある様で　configure オプションで
-
---disable-nls で言語サポートを無効にしないとインストールエラーになります
-
-brew edit gnu-tar ; # 37行目に追加
-
-args << if OS.mac?  
-&emsp;&emsp;"--program-prefix=g"  
-&emsp;&emsp;"--disable-nls"  
-else
-
 dpkg は gnu-tar に依存するのですが gtar のパスを探そうとしてエラーになります
 
 ln -s /usr/local/Cellar/gnu-tar/1.35/bin/tar /usr/local/opt/gnu-tar/bin/gtar</br></br>
