@@ -27,7 +27,7 @@ brew install llvm@12 ; その後、
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年12月 php、isl、mysql などは以下でインストール出来ます
+2023年12月 php、isl、mysql、jpeg-xl などは以下でインストール出来ます
 
 brew install --cc=llvm_clang \<Formula>
 
