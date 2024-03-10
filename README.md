@@ -98,26 +98,6 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 brew install --cc=llvm_clang node<br/><br/>
 
-OS10.13 では python@3.12 で機能しない部分があります
-
-python-packaging は python@3.12 でエラーが出る場合は
-
-brew edit python-packaging
-
-22行目、以下をコメントにして下さい
-
-\# depends_on "python@3.12" => [:build, :test]
-
-sphinx-doc も python@3.12 でエラーが出る場合は
-
-brew edit sphinx-doc # 33行目
-
-depends_on "python@3.12"
-
-これを以下に書き換えます
-
-depends_on "python@3.11"
-
 python 関係で ModuleNotFoundError: No module named 'packaging' エラー等が出る場合
 
 mkdir ~/.pip  
