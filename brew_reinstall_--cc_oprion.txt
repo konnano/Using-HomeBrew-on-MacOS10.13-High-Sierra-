@@ -5,21 +5,21 @@ HomeBrewではインストールする時しか --cc オプションが使えま
 
 /usr/local/Homebrew/Library/Homebrew/reinstall.rb
 
-リストに追加、24行目
+リストに追加、24行目辺り
 
  verbose: false,
  cc: false, # <= 追加
  git: false 
 
-リストに追加、50行目
+リストに追加、50行目辺り
 
- build_from_source_formulae: build_from_source_formulae,
- cc:                         cc, # <= 追加
- git:                        git,
+ build_from_source_formulae:,
+ cc:, # <= 追加
+ git:,
 
 /usr/local/Homebrew/Library/Homebrew/cmd/reinstall.rb
 
-リストに追加、67行目
+リストに追加、67行目辺り
 
  [:switch, "-g", "--git", {  
  description: "Create a Git repository, useful for creating patches to the software.",
@@ -27,7 +27,7 @@ HomeBrewではインストールする時しか --cc オプションが使えま
  [:flag, "--cc=", { description: "cc option" }], # <= 追加
  ].each do |args|
 
-リストに追加、153行目
+リストに追加、148行目辺り
 
  verbose:                    args.verbose?,
  cc:                         args.cc, # <= 追加
