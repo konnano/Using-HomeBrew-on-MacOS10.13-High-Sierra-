@@ -3,6 +3,8 @@ HomeBrewではインストールする時しか --cc オプションが使えま
 下位依存されてるフォーミュラを修正しなければならない場合は reinstall を使うのですが
 --cc オプションが必要なフォーミュラには対応出来ません、なので書き換え(追加)します
 
+アップデートで書き換えられたら、https://github.com/Homebrew/brew ここからダウンロードして本体をコピーして書き換えて下さい
+
 /usr/local/Homebrew/Library/Homebrew/reinstall.rb
 
 リストに追加、24行目辺り
@@ -24,10 +26,14 @@ HomeBrewではインストールする時しか --cc オプションが使えま
  [:switch, "-g", "--git", {  
  description: "Create a Git repository, useful for creating patches to the software.",
  }],
- [:flag, "--cc=", { description: "cc option" }], # <= 追加
+ [:flag, "--cc=", { description: "Attempt to compile using the specified <compiler>, which should be the name of the " \
+                "compiler's executable, e.g. `gcc-7` for GCC 7. In order to use LLVM's clang, specify " \
+                "`llvm_clang`. To use the Apple-provided clang, specify `clang`. This option will only " \
+                "accept compilers that are provided by Homebrew or bundled with macOS. Please do not " \
+                "file issues if you encounter errors while using this option." }], # <= 追加
  ].each do |args|
 
-リストに追加、148行目辺り
+リストに追加、154行目辺り
 
  verbose:                    args.verbose?,
  cc:                         args.cc, # <= 追加
