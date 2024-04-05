@@ -4,7 +4,7 @@ HomeBrewではインストールする時しか --cc オプションが使えま
 --cc オプションが必要なフォーミュラには対応出来ません、なので書き換え(追加)します
 
 アップデートで書き換えられエラーになったら、https://github.com/Homebrew/brew ここからダウンロードして
-それぞれの階層に、reinstall.rb本体をコピーして書き換えて下さい
+それぞれの階層に、最新の reinstall.rb 本体をコピーして再度書き換えて下さい
 
 /usr/local/Homebrew/Library/Homebrew/reinstall.rb
 
