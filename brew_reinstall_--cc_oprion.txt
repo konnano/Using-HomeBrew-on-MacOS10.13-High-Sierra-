@@ -3,7 +3,8 @@ HomeBrewではインストールする時しか --cc オプションが使えま
 下位依存されてるフォーミュラを修正しなければならない場合は reinstall を使うのですが
 --cc オプションが必要なフォーミュラには対応出来ません、なので書き換え(追加)します
 
-アップデートで書き換えられたら、https://github.com/Homebrew/brew ここからダウンロードして本体をコピーして書き換えて下さい
+アップデートで書き換えられエラーになったら、https://github.com/Homebrew/brew ここからダウンロードして
+それぞれの階層に、reinstall.rb本体をコピーして書き換えて下さい
 
 /usr/local/Homebrew/Library/Homebrew/reinstall.rb
 
