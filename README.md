@@ -168,14 +168,6 @@ libheif のインストールが終われば元に戻しましょう
 
 mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.10_1</br></br>
 
-gccは通常インストールして下さい、ただllvm@15をインストールしていると
-
-llvm@15のライブラリにリンクしようとするのでエラーになります
-
-brew unlink llvm@15 # これでllvm@15のライブラリは消えます
-
-gccのインストールが終われば元に戻しましょう brew link llvm@15</br></br>
-
 2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
 
 ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
