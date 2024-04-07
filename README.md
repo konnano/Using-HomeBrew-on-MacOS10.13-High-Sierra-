@@ -44,7 +44,7 @@ brew edit gcc # islを無効にします
 
 \# depends_on "isl" # 52行目をコメントに
 
---with-isl=#{Formula["isl"].opt_prefix} # 97行目を削除
+--with-isl=#{Formula["isl"].opt_prefix} # 98行目を削除
 
 brew install gcc # インストールが終われば
 
