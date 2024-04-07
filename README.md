@@ -17,7 +17,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 最初にXcode.appを起動した時に出るライセンス認証ダイアログのOKボタンを押すだけです
 
-brew install llvm@12 ; その後、
+``brew install llvm@12`` ; その後、
 
 /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
 
@@ -29,7 +29,7 @@ brew install llvm@12 ; その後、
 
 2023年12月 php、mysql、jpeg-xl などは以下でインストール出来ます
 
-brew install --cc=llvm_clang \<Formula>
+``brew install --cc=llvm_clang`` \<Formula>
 
 --cc オプションは指定したフォーミュラにのみ有効で依存するフォーミュラには動作しません  
 なので依存するフォーミュラに --cc オプションが必要な場合は個別にインストールします</br></br>
@@ -46,13 +46,13 @@ brew edit gcc # islを無効にします
 
 --with-isl=#{Formula["isl"].opt_prefix} # 98行目を削除
 
-brew install gcc
+``brew install gcc``
 
-brew install --cc=gcc-13 isl
+``brew install --cc=gcc-13 isl``
 
 mv  ~/gcc.rb $(brew --repo)/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb
 
-brew reinstall gcc</br></br>
+``brew reinstall gcc``</br></br>
 
 2024年4月 node(21.7.2)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
@@ -64,7 +64,7 @@ https://stackoverflow.com/questions/69906053/how-to-install-llvm13-with-homerew-
 
 ターミナルをもう１枚開くか、iTerm2なら画面分割で top -u コマンドで動作確認します
 
-brew install --cc=llvm_clang llvm@15
+``brew install --cc=llvm_clang llvm@15``
 
 これでソースがダウンロードされ展開され /tmp にコピーされます
 
@@ -116,7 +116,7 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 &emsp;&emsp;       //  os_signpost_emit_with_type(log, OS_SIGNPOST_EVENT, \\  
 &emsp;&emsp;&emsp;                 event_id, name, ##\_\_VA_ARGS__)
 
-brew install --cc=llvm_clang node<br/><br/>
+``brew install --cc=llvm_clang node``<br/><br/>
 
 python 関係で ModuleNotFoundError: No module named 'packaging' エラー等が出る場合
 
@@ -176,11 +176,11 @@ mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.10_1</
 
 ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
 
-brew install --cc=gcc-13 ghostscript</br></br>
+``brew install --cc=gcc-13 ghostscript``</br></br>
 
 shared-mime-info も --cc=gcc-13 オプションを使って下さい
 
-brew install --cc=gcc-13 shared-mime-info<br/><br/>
+``brew install --cc=gcc-13 shared-mime-info``<br/><br/>
 
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
@@ -190,7 +190,7 @@ clang と clang-15 はアーキテクチャが違うので llvm があるとエ�
 
 subversion をインストールする場合は llvm のリンクを解除してインストールして下さい
 
-brew unlink llvm@15 ; brew install subversion
+brew unlink llvm@15 ; ``brew install subversion``
 
 subversion のインストールが終われば llvm のリンクを戻して大丈夫です
 
@@ -199,7 +199,7 @@ brew link llvm@15
 2024年2月 graphvizでエラーになります  
 強制インストールすれば動作しますがバグが残りそうです
 
-brew install --debug graphviz
+``brew install --debug graphviz``
 
 BuildError: Failed executing: make  
 1\. raise  
