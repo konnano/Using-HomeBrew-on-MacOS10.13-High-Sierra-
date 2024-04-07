@@ -27,12 +27,28 @@ brew install llvm@12 ; その後、
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年12月 php、isl、mysql、jpeg-xl などは以下でインストール出来ます
+2023年12月 php、mysql、jpeg-xl などは以下でインストール出来ます
 
 brew install --cc=llvm_clang \<Formula>
 
 --cc オプションは指定したフォーミュラにのみ有効で依存するフォーミュラには動作しません  
 なので依存するフォーミュラに --cc オプションが必要な場合は個別にインストールします</br></br>
+
+2024年4月 islのビルドに gccが必要なのですが gccがislに依存するので gccの通常インストールが出来ません
+
+フォーミュラを書き換え(削除)するので念の為に保存しておきます
+
+cp $(brew --repo)/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb ~/gcc.rb
+
+brew edit gcc # islを無効にします
+
+\# depends_on "isl" # 52行目をコメントに
+
+--with-isl=#{Formula["isl"].opt_prefix} # 97行目を削除
+
+brew install gcc # インストールが終われば
+
+brew install --cc=gcc-13 isl</br></br>
 
 2024年4月 node(21.7.2)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
