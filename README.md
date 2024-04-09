@@ -34,11 +34,11 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 --cc オプションは指定したフォーミュラにのみ有効で依存するフォーミュラには動作しません  
 なので依存するフォーミュラに --cc オプションが必要な場合は個別にインストールします</br></br>
 
-2024年4月 islのビルドに gccが必要なのですが gccが islに依存するので gccの通常インストールが出来ません
+islのビルドに gccが必要なのですが gccが islに依存するので gccの通常インストールが出来ません
 
 フォーミュラを書き換え(削除)するので保存しておきます
 
-cp $(brew --repo)/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb ~/gcc.rb
+cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb ~/gcc.rb
 
 brew edit gcc # islを無効にします
 
@@ -50,7 +50,7 @@ brew edit gcc # islを無効にします
 
 ``brew install --cc=gcc-13 isl``
 
-mv  ~/gcc.rb $(brew --repo)/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb
+mv  ~/gcc.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb
 
 ``brew reinstall gcc``</br></br>
 
