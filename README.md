@@ -56,9 +56,9 @@ mv  ~/gcc.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/g
 
 ``brew reinstall gcc``
 
-isl を reinstall してみたら --cc=gcc-13 オプションでエラーになります  
-llvm でビルドできた islでは --cc=llvm_calngを使わないといけない様です  
-なぜにこうなるのか、さっぱり理由がわかりません</br></br>
+llvmでビルドできた islを reinstallしてみたら --cc=gcc-13オプションでエラーになります  
+llvmでビルドできた islでは --cc=llvm_calngを使わないといけない様です  
+なぜこうなるのか、理由がわかりません</br></br>
 
 2024年4月 node(21.7.2)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
