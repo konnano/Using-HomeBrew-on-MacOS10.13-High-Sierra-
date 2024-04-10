@@ -46,13 +46,19 @@ brew edit gcc # islを無効にします
 
 --with-isl=#{Formula["isl"].opt_prefix} # 98行目を削除
 
+--disable-bootstrap # 102行目に追加 とりあえずビルド
+
 ``brew install gcc``
 
 ``brew install --cc=gcc-13 isl``
 
 mv  ~/gcc.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb
 
-``brew reinstall gcc``</br></br>
+``brew reinstall gcc``
+
+isl を reinstall してみたら --cc=gcc-13 オプションでエラーになります  
+llvm でビルドできた islでは --cc=llvm_calngを使わないといけない様です  
+なぜにこうなるのか、さっぱり理由がわかりません</br></br>
 
 2024年4月 node(21.7.2)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
