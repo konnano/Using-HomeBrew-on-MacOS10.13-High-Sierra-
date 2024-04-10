@@ -46,7 +46,7 @@ brew edit gcc # islを無効にします
 
 --with-isl=#{Formula["isl"].opt_prefix} # 98行目を削除
 
---disable-bootstrap # 102行目に追加、　とりあえずビルド
+--disable-bootstrap # 102行目に追加、とりあえずビルド
 
 ``brew install gcc``
 
