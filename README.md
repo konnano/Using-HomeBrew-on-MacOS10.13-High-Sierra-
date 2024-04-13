@@ -34,27 +34,27 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 --cc オプションは指定したフォーミュラにのみ有効で依存するフォーミュラには動作しません  
 なので依存するフォーミュラに --cc オプションが必要な場合は個別にインストールします</br></br>
 
-islのビルドに gccが必要なのですが gccが islに依存するので gccの通常インストールが出来ません
+islのビルドに gcc@11が必要なのですが gcc@11が islに依存するので gcc@11の通常インストールが出来ません
 
 フォーミュラを書き換え(削除)するので保存しておきます
 
-cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb ~/gcc.rb
+cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/<foo>gcc</foo>@11.rb ~/gcc.rb
 
-brew edit gcc # islを無効にします
+brew edit gcc@11 # islを無効にします
 
-\# depends_on "isl" # 52行目をコメントに
+\# depends_on "isl" # 30行目をコメントに
 
---with-isl=#{Formula["isl"].opt_prefix} # 98行目を削除
+--with-isl=#{Formula["isl"].opt_prefix} # 75行目を削除
 
---disable-bootstrap # 102行目に追加、とりあえずビルド
+--disable-bootstrap # 78行目に追加、とりあえずビルド
+
+``brew install gcc@11``
+
+``brew install --cc=gcc-11 isl``
+
+mv  ~/gcc.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/<foo>gcc</foo>@11.rb
 
 ``brew install gcc``
-
-``brew install --cc=gcc-13 isl``
-
-mv  ~/gcc.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/gcc.rb
-
-``brew reinstall gcc``
 
 llvmでビルドできた islを reinstallしてみたら --cc=gcc-13オプションでエラーになります  
 llvmでビルドできた islでは --cc=llvm_calngを使わないといけない様です  
