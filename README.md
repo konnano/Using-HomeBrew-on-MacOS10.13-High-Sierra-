@@ -56,7 +56,7 @@ mv  ~/gcc.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/<
 
 ``brew install gcc``
 
-llvmでビルドできた islを reinstallしてみたら --cc=gcc-13オプションでエラーになります  
+llvmでビルドできた islを reinstallしてみたら --cc=gcc-11オプションでエラーになります  
 llvmでビルドできた islでは --cc=llvm_calngを使わないといけない様です  
 なぜこうなるのか、原因がわかりません</br></br>
 
