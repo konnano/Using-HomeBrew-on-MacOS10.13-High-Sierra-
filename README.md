@@ -8,6 +8,8 @@ HomeBrew MacOS10.13は通常のインストールではソースからでもビ�
 HomeBrew 4.0.0以降の場合はシェルに以下の環境変数を設定して下さい
 ```
 echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/$(echo .${SHELL##*/}rc)
+source  ~/$(echo .${SHELL##*/}rc)
+brew tap homebrew/core
 ```
 まず、llvm@12 これは必要で通常インストール出来るフォーミュラです
 
