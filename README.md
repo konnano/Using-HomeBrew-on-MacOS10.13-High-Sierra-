@@ -126,7 +126,8 @@ sudo vim /usr/include/os/signpost.h ; # 280行目
 
 ``brew install --cc=llvm_clang node``<br/><br/>
 
-python 関係で ModuleNotFoundError: No module named 'packaging' エラー等が出る場合
+python 関係で ModuleNotFoundError: No module named 'packaging' エラー等が出る場合  
+エラー表示が python@3.11、python@3.12 どちらか確認して下さい
 
 mkdir ~/.pip  
 vim ~/.pip/pip.conf # 以下２行を書く
@@ -134,9 +135,9 @@ vim ~/.pip/pip.conf # 以下２行を書く
 [global]  
 break-system-packages = true
 
-cd /usr/local/Cellar/python@3.12/3.12.0/bin  
-./python3.12 -m pip install --upgrade pip  
-./python3.12 -m pip install 'packaging'<br/><br/>
+cd /usr/local/Cellar/python@3.12/3.12.3/bin \# or python@3.11/3.11.9/bin  
+./python3.12 -m pip install --upgrade pip \# or ./python@3.11   
+./python3.12 -m pip install 'packaging' \# or ./python@3.11<br/><br/>
 
 2024年1月 llvm(17.0.6_1) がリリースされました、インストール方法は llvm@15 と同じです
 
