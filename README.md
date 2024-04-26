@@ -62,7 +62,7 @@ llvmでビルドできた islを reinstallしてみたら --cc=gcc-11オプシ�
 llvmでビルドできた islでは --cc=llvm_calngを使わないといけない様です  
 なぜこうなるのか、原因がわかりません</br></br>
 
-2024年4月 node(21.7.3)は llvm@15が無いとインストール出来ないので書き換えが必要になります
+2024年4月 node(22.0.0)は llvm@15が無いとインストール出来ないので書き換えが必要になります
 
 llvm@15のインストールですが、いくつか方法があるようでネタ元のリンクを貼っておきます
 
@@ -96,7 +96,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-node(21.7.3) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(18.1.4)が無いないなら
+node(22.0.0) のビルドは llvm@15で大丈夫です、node.rbでビルドに llvmが指定されてるので llvm(18.1.4)が無いないなら
 
 brew edit node ; # 36行目、以下をコメントにして下さい
 
