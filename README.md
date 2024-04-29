@@ -204,16 +204,3 @@ brew unlink llvm@15 ; ``brew install subversion``
 subversion のインストールが終われば llvm のリンクを戻して大丈夫です
 
 brew link llvm@15
-
-2024年2月 graphvizでエラーになります  
-強制インストールすれば動作しますがバグが残りそうです
-
-``brew install --debug graphviz``
-
-BuildError: Failed executing: make  
-1\. raise  
-2\. ignore  
-3\. backtrace  
-4\. irb  
-5\. shell  
-Choose an action: 2
