@@ -40,7 +40,7 @@ islのビルドに gcc@11が必要なのですが gcc@11が islに依存する�
 
 フォーミュラを書き換え(削除)するので保存しておきます
 
-cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/<foo>gcc</foo>@11.rb ~/gcc.rb
+cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/<foo>gcc</foo>@11.rb ~/<foo>gcc<foo>@11.rb
 
 brew edit gcc@11 # islを無効にします
 
@@ -54,9 +54,9 @@ brew edit gcc@11 # islを無効にします
 
 ``brew install --cc=gcc-11 isl``
 
-mv  ~/gcc.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/<foo>gcc</foo>@11.rb
+mv  ~/<foo>gcc</foo>@11.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/g/<foo>gcc</foo>@11.rb
 
-``brew install gcc``
+``brew install --cc=gcc-11 gcc``
 
 llvmでビルドできた islを reinstallしてみたら --cc=gcc-11オプションでエラーになります  
 llvmでビルドできた islでは --cc=llvm_calngを使わないといけない様です  
@@ -185,11 +185,11 @@ mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.11</br
 
 ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
 
-``brew install --cc=gcc-13 ghostscript``</br></br>
+``brew install --cc=gcc-11 ghostscript``</br></br>
 
-shared-mime-info も --cc=gcc-13 オプションを使って下さい
+shared-mime-info も --cc=gcc-11 オプションを使って下さい
 
-``brew install --cc=gcc-13 shared-mime-info``<br/><br/>
+``brew install --cc=gcc-11 shared-mime-info``<br/><br/>
 
 subversion は llvm がインストールされていればメイクに clang と clang-15 を併用します
 
