@@ -173,7 +173,7 @@ return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __roun
 
 php を llvm@16 以降でビルドするとエラーになります、特別な理由がなければ llvm@15でビルドしましょう</br></br>
 
-2024年4月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
+2024年5月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
 
 mv /usr/local/Cellar/gdk-pixbuf/2.42.12 /usr/local/Cellar/gdk-pixbuf/2.42.10
 
