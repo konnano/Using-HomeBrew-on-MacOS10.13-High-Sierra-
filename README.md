@@ -175,11 +175,11 @@ php を llvm@16 以降でビルドするとエラーになります、特別な�
 
 2024年4月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
 
-mv /usr/local/Cellar/gdk-pixbuf/2.42.11 /usr/local/Cellar/gdk-pixbuf/2.42.10
+mv /usr/local/Cellar/gdk-pixbuf/2.42.12 /usr/local/Cellar/gdk-pixbuf/2.42.10
 
 libheif のインストールが終われば元に戻しましょう
 
-mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.11</br></br>
+mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.12</br></br>
 
 2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
 
