@@ -204,3 +204,16 @@ brew unlink llvm@15 ; ``brew install subversion``
 subversion のインストールが終われば llvm のリンクを戻して大丈夫です
 
 brew link llvm@15
+
+2024年5月　openexr をリインストールしたらエラーになりました
+
+cat ~/Library/Logs/Homebrew/openexr/01.cmake を見てみると
+
+libdeflate , clang-format がないエラーです、依存関係が更新されてません
+
+brew install libdeflate
+
+brew reinstall openexr
+
+clang-format はなくても大丈夫です
+
