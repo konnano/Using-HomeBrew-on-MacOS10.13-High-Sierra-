@@ -29,7 +29,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年12月 php、mysql、jpeg-xl などは以下でインストール出来ます
+2023年12月 php、mysql、jpeg-xl、doxygen などは以下でインストール出来ます
 
 ``brew install --cc=llvm_clang`` \<Formula>
 
@@ -207,7 +207,7 @@ brew link llvm@15
 
 2024年5月　openexr をリインストールしたらエラーになりました
 
-cat ~/Library/Logs/Homebrew/openexr/01.cmake を見てみると
+~/Library/Logs/Homebrew/openexr/01.cmake を見てみると
 
 libdeflate , clang-format がないエラーです、依存関係が更新されてません
 
