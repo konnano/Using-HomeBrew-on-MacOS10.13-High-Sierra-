@@ -152,12 +152,12 @@ iMac(2013)OS10.13 はビルド出来るのですが iBookPro(2012)OS10.13 では
 
 ~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると引数が足りないエラーになっています
 
-CMake Error at /tmp/llvm......../llvm-project-18.1.4.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:371 (string):
+CMake Error at /tmp/llvm......../llvm-project-18.1.6.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:371 (string):
 8515   string sub-command REPLACE requires at least four arguments.
 
 ビルドに成功してる iMacで足りない値を表示すると　x86_64-apple-darwin17.7.0 でした  
 cc --version で返ってくる値　Target: x86_64-apple-darwin17.7.0 になります  
-/tmp/llvm......../llvm-project-18.1.4.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake # 370行目に追加
+/tmp/llvm......../llvm-project-18.1.6.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake # 370行目に追加
 
 set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
