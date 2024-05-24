@@ -96,7 +96,7 @@ if (cputype == CPU_TYPE_ARM64) {
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"</br></br>
 
-node(22.2.0) のビルドは llvm@15を使ってください、node.rbでビルドに llvm（18.1.5）が指定されてるので
+node(22.2.0) のビルドは llvm@15を使ってください、node.rbでビルドに llvmが指定されてるので
 
 brew edit node ; # 36行目、以下をコメントにして下さい
 
@@ -139,15 +139,15 @@ cd /usr/local/Cellar/python@3.12/3.12.3/bin \# or python@3.11/3.11.9/bin
 ./python3.12 -m pip install --upgrade pip \# or ./python@3.11   
 ./python3.12 -m pip install 'packaging' \# or ./python@3.11<br/><br/>
 
-2024年5月 llvm(18.1.5) がリリースされました、インストール方法は llvm@15 と同じです
+2024年5月 llvm(18.1.6) がリリースされました、インストール方法は llvm@15 と同じです
 
-llvm(18.1.5) 関連のインストールは依存関係が少しややこしいです
+llvm(18.1.6) 関連のインストールは依存関係が少しややこしいです
 
 vim は ruby に依存し ruby のビルドに rust が必要になります
 
 rust は llvm に依存し llvm のビルドに ninja が必要になります<br/><br/>
 
-llvm(18.1.5) のビルドは llvm@15 と同じです、ただ私の環境では何故か  
+llvm(18.1.6) のビルドは llvm@15 と同じです、ただ私の環境では何故か  
 iMac(2013)OS10.13 はビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
 
 ~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると引数が足りないエラーになっています
