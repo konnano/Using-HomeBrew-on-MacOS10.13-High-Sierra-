@@ -217,3 +217,18 @@ brew reinstall openexr
 
 clang-format はなくても大丈夫です
 
+2024年5月 c-ares はヘッダーで定義されてないようでエラーになります
+
+SIP を無効にして書き加えます
+
+sudo vim /usr/include/dispatch/dispatch.h # 38行目
+
+\#if !defined(HAVE_UNISTD_H) || HAVE_UNISTD_H
+
+HAVE_UNISTD_H 定義を書き加えます
+
+\#define HAVE_UNISTD_H 1  
+\#if !defined(HAVE_UNISTD_H) || HAVE_UNISTD_H
+
+brew install c-ares 
+
