@@ -215,11 +215,11 @@ brew install libdeflate
 
 brew reinstall openexr
 
-clang-format はなくても大丈夫です
+clang-format はなくても大丈夫です</br></br>
 
 2024年5月 c-ares はヘッダーで定義されてないようでエラーになります
 
-SIP を無効にして書き加えます
+c-ares は node に必要なので SIP を無効にして書き加えます
 
 sudo vim /usr/include/dispatch/dispatch.h # 38行目
 
