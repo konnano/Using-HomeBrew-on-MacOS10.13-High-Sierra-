@@ -106,6 +106,8 @@ brew edit node ; # 36行目、以下をコメントにして下さい
 
 nodeはヘッダーのコピーと書き換えが必要になります
 
+[依存する c-aresもヘッダーの書き換えが必要になります](#10)
+
 システムに触れるので System Integrity Protection(SIP)を無効にして下さい
 
 https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
@@ -217,7 +219,7 @@ brew reinstall openexr
 
 clang-format はなくても大丈夫です</br></br>
 
-2024年5月 c-ares はヘッダーで定義されてないようでエラーになります
+2024年5月 <a id=10>c-ares</a> はヘッダーで定義されてないようでエラーになります
 
 c-ares は node に必要なので SIP を無効にして書き加えます
 
