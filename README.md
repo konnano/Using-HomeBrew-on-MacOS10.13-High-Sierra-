@@ -236,11 +236,4 @@ brew install c-ares
 
 ~/Library/Logs/Homebrew/c-ares/02.cmake を確認すると
 
-1回目のビルドは has no symbolsと警告が出ながら成功します
-
-brew reinstall c-ares
-
-2回目のビルドは警告出ずに成功します
-
-何が違うのか良くわかりません
-
+ビルドは has no symbolsと警告が出ながら成功します
