@@ -221,16 +221,15 @@ clang-format はなくても大丈夫です</br></br>
 
 2024年5月 <a id=10>c-ares</a> はヘッダーで定義されてないようでエラーになります
 
-c-ares は node に必要なので SIP を無効にして書き加えます
+c-ares は node に必要なので SIP を無効にして書き換えます
 
 sudo vim /usr/include/dispatch/dispatch.h # 38行目
 
 \#if !defined(HAVE_UNISTD_H) || HAVE_UNISTD_H
 
-HAVE_UNISTD_H 定義を書き加えます
+HAVE_UNISTD_H 定義を書き換えます
 
-\#define HAVE_UNISTD_H 1  
-\#if !defined(HAVE_UNISTD_H) || HAVE_UNISTD_H
+\#if !defined(HAVE_UNISTD_H) // || HAVE_UNISTD_H
 
 brew install c-ares 
 
