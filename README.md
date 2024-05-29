@@ -235,4 +235,4 @@ brew install c-ares
 
 ~/Library/Logs/Homebrew/c-ares/02.cmake を確認すると
 
-ビルドは has no symbolsと警告が出ながら成功します
+has no symbols と警告が出ながらビルドは成功します
