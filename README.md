@@ -227,7 +227,7 @@ sudo vim /usr/include/dispatch/dispatch.h # 38行目
 
 \#if !defined(HAVE_UNISTD_H) || HAVE_UNISTD_H
 
-HAVE_UNISTD_H 定義を書き換えます
+HAVE_UNISTD_H 定義を無効にして unistd.hを読み込ませます
 
 \#if !defined(HAVE_UNISTD_H) // || HAVE_UNISTD_H
 
