@@ -141,25 +141,25 @@ cd /usr/local/Cellar/python@3.12/3.12.3/bin \# or python@3.11/3.11.9/bin
 ./python3.12 -m pip install --upgrade pip \# or ./python@3.11   
 ./python3.12 -m pip install 'packaging' \# or ./python@3.11<br/><br/>
 
-2024年5月 llvm(18.1.6) がリリースされました、インストール方法は llvm@15 と同じです
+2024年6月 llvm(18.1.7) がリリースされました、インストール方法は llvm@15 と同じです
 
-llvm(18.1.6) 関連のインストールは依存関係が少しややこしいです
+llvm(18.1.7) 関連のインストールは依存関係が少しややこしいです
 
 vim は ruby に依存し ruby のビルドに rust が必要になります
 
 rust は llvm に依存し llvm のビルドに ninja が必要になります<br/><br/>
 
-llvm(18.1.6) のビルドは llvm@15 と同じです、ただ私の環境では何故か  
+llvm(18.1.7) のビルドは llvm@15 と同じです、ただ私の環境では何故か  
 iMac(2013)OS10.13 はビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
 
 ~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると引数が足りないエラーになっています
 
-CMake Error at /tmp/llvm......../llvm-project-18.1.6.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:371 (string):
+CMake Error at /tmp/llvm......../llvm-project-18.1.7.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:371 (string):
 8515   string sub-command REPLACE requires at least four arguments.
 
 ビルドに成功してる iMacで足りない値を表示すると　x86_64-apple-darwin17.7.0 でした  
 cc --version で返ってくる値　Target: x86_64-apple-darwin17.7.0 になります  
-/tmp/llvm......../llvm-project-18.1.6.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake # 370行目に追加
+/tmp/llvm......../llvm-project-18.1.7.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake # 370行目に追加
 
 set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
