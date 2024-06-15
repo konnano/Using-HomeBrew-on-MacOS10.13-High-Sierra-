@@ -104,7 +104,7 @@ brew edit node ; # 36行目、以下をコメントにして下さい
 \# &emsp;&emsp;depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100  
 \# end</br></br>
 
-nodeはヘッダーのコピーと書き換えが必要になります
+node(22.2.0) はヘッダーのコピーと書き換えが必要になります
 
 [依存する c-aresもヘッダーの書き換えが必要になります](#10)
 
@@ -141,6 +141,36 @@ cd /usr/local/Cellar/python@3.12/3.12.3/bin \# or python@3.11/3.11.9/bin
 ./python3.12 -m pip install --upgrade pip \# or ./python@3.11   
 ./python3.12 -m pip install 'packaging' \# or ./python@3.11<br/><br/>
 
+2024年6月 preadv/pwritev に対応していない為、node(22.3.0)以降にアップデート出来ません  
+残念ながら node(22.2.0)が最終バージョンになりました、以下が依存関係のバージョンです  
+```
+node (22.2.0)
+├── brotli (1.1.0)
+├── c-ares (1.30.0)
+├── icu4c (74.2)
+├── libnghttp2 (1.61.0)
+├── libuv (1.48.0)
+├── openssl@3 (3.3.1)
+│   └── ca-certificates (2024-03-11)
+├── python@3.12 (3.12.4)
+│   ├── mpdecimal (4.0.0)
+│   ├── openssl@3 (3.3.1)
+│   │   └── ca-certificates (2024-03-11)
+│   ├── sqlite (3.46.0)
+│   │   └── readline (8.2.10)
+│   ├── xz (5.4.6)
+│   ├── libffi (3.4.6)
+│   ├── ca-certificates (2024-03-11)
+│   ├── readline (8.2.10)
+│   └── gettext (0.22.5)
+├── ca-certificates (2024-03-11)
+├── mpdecimal (4.0.0)
+├── readline (8.2.10)
+├── sqlite (3.46.0)
+│   └── readline (8.2.10)
+├── xz (5.4.6)
+└── libffi (3.4.6)
+```
 2024年6月 llvm(18.1.7) がリリースされました、インストール方法は llvm@15 と同じです
 
 llvm(18.1.7) 関連のインストールは依存関係が少しややこしいです
