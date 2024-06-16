@@ -141,7 +141,7 @@ cd /usr/local/Cellar/python@3.12/3.12.3/bin \# or python@3.11/3.11.9/bin
 ./python3.12 -m pip install --upgrade pip \# or ./python@3.11   
 ./python3.12 -m pip install 'packaging' \# or ./python@3.11<br/><br/>
 
-2024年6月 preadv/pwritev に対応していない為、node(22.3.0)以降にアップデート出来ません  
+2024年6月 llvm@15のライブラリが欠落して、node(22.3.0)以降にアップデート出来ません  
 残念ながら node(22.2.0)が最終バージョンになりました、以下が依存関係のバージョンです  
 ```
 node (22.2.0)
