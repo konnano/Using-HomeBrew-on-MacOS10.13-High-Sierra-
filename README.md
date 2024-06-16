@@ -142,7 +142,7 @@ cd /usr/local/Cellar/python@3.12/3.12.3/bin \# or python@3.11/3.11.9/bin
 ./python3.12 -m pip install 'packaging' \# or ./python@3.11<br/><br/>
 
 2024年6月 llvm@15のライブラリが欠落して、node(22.3.0)以降にアップデート出来ません  
-<details><summary>テンプレートの問題かもしれませんが、私にはわかりません</summary>
+<details><summary>テンプレートの書き換えで何とかなるかもしれませんが、私にはわかりません</summary>
   
 ```
 Undefined symbols for architecture x86_64:
