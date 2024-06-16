@@ -142,6 +142,63 @@ cd /usr/local/Cellar/python@3.12/3.12.3/bin \# or python@3.11/3.11.9/bin
 ./python3.12 -m pip install 'packaging' \# or ./python@3.11<br/><br/>
 
 2024年6月 llvm@15のライブラリが欠落して、node(22.3.0)以降にアップデート出来ません  
+<details><summary>テンプレートの問題かもしれませんが、私にはわかりません</summary>
+  
+```
+Undefined symbols for architecture x86_64:
+  "std::__1::__fs::filesystem::path::__filename() const", referenced from:
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_task_runner.o)
+      __ZNSt3__14__fs10filesystem4path6appendB6v15007INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKSB_ in libnode.a(node_task_runner.o)
+      __ZNKSt3__14__fs10filesystem4path8filenameB6v15007Ev in libnode.a(node_errors.o)
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_modules.o)
+  "std::__1::__fs::filesystem::path::__root_name() const", referenced from:
+      __ZNKSt3__14__fs10filesystem4path9root_nameB6v15007Ev in libnode.a(node_task_runner.o)
+  "std::__1::__fs::filesystem::path::__parent_path() const", referenced from:
+      __ZNKSt3__14__fs10filesystem4path11parent_pathB6v15007Ev in libnode.a(node_task_runner.o)
+      __ZNKSt3__14__fs10filesystem4path11parent_pathB6v15007Ev in libnode.a(node_modules.o)
+Undefined symbols for architecture x86_64:
+  "std::__1::__fs::filesystem::path::__filename() const", referenced from:
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_task_runner.o)
+      __ZNSt3__14__fs10filesystem4path6appendB6v15007INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKSB_ in libnode.a(node_task_runner.o)
+      __ZNKSt3__14__fs10filesystem4path8filenameB6v15007Ev in libnode.a(node_errors.o)
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_modules.o)
+  "std::__1::__fs::filesystem::path::__root_directory() const", referenced from:
+      __ZNKSt3__14__fs10filesystem4path9root_pathB6v15007Ev in libnode.a(node_task_runner.o)
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_task_runner.o)
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_modules.o)
+  "std::__1::__fs::filesystem::path::__root_name() const", referenced from:
+      __ZNKSt3__14__fs10filesystem4path9root_nameB6v15007Ev in libnode.a(node_task_runner.o)
+  "std::__1::__fs::filesystem::path::__compare(std::__1::basic_string_view<char, std::__1::char_traits<char> >) const", referenced from:
+      node::modules::BindingData::TraverseParent(node::Realm*, std::__1::__fs::filesystem::path const&) in libnode.a(node_modules.o)
+  "std::__1::__fs::filesystem::path::__parent_path() const", referenced from:
+      __ZNKSt3__14__fs10filesystem4path11parent_pathB6v15007Ev in libnode.a(node_task_runner.o)
+      __ZNKSt3__14__fs10filesystem4path11parent_pathB6v15007Ev in libnode.a(node_modules.o)
+  "std::__1::__fs::filesystem::__equivalent(std::__1::__fs::filesystem::path const&, std::__1::__fs::filesystem::path const&, std::__1::error_code*)", referenced from:
+      node::task_runner::FindPackageJson(std::__1::__fs::filesystem::path const&) in libnode.a(node_task_runner.o)
+  "std::__1::__fs::filesystem::path::__root_directory() const", referenced from:
+      __ZNKSt3__14__fs10filesystem4path9root_pathB6v15007Ev in libnode.a(node_task_runner.o)
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_task_runner.o)
+      __ZNSt3__14__fs10filesystem4pathdVB6v15007ERKS2_ in libnode.a(node_modules.o)
+  "std::__1::__fs::filesystem::__current_path(std::__1::error_code*)", referenced from:
+      node::task_runner::RunTask(std::__1::shared_ptr<node::InitializationResultImpl>, std::__1::basic_string_view<char, std::__1::char_traits<char> >, std::__1::vector<std::__1::basic_string_view<char, std::__1::char_traits<char> >, std::__1::allocator<std::__1::basic_string_view<char, std::__1::char_traits<char> > > > const&) in libnode.a(node_task_runner.o)
+  "std::__1::__fs::filesystem::path::__compare(std::__1::basic_string_view<char, std::__1::char_traits<char> >) const", referenced from:
+      node::modules::BindingData::TraverseParent(node::Realm*, std::__1::__fs::filesystem::path const&) in libnode.a(node_modules.o)
+  "std::__1::__fs::filesystem::path::replace_extension(std::__1::__fs::filesystem::path const&)", referenced from:
+      node::ReportFatalException(node::Environment*, v8::Local<v8::Value>, v8::Local<v8::Message>, node::EnhanceFatalException) in libnode.a(node_errors.o)
+  "std::__1::__fs::filesystem::__equivalent(std::__1::__fs::filesystem::path const&, std::__1::__fs::filesystem::path const&, std::__1::error_code*)", referenced from:
+      node::task_runner::FindPackageJson(std::__1::__fs::filesystem::path const&) in libnode.a(node_task_runner.o)
+  "std::__1::__fs::filesystem::__status(std::__1::__fs::filesystem::path const&, std::__1::error_code*)", referenced from:
+      node::task_runner::FindPackageJson(std::__1::__fs::filesystem::path const&) in libnode.a(node_task_runner.o)
+  "std::__1::__fs::filesystem::__current_path(std::__1::error_code*)", referenced from:
+      node::task_runner::RunTask(std::__1::shared_ptr<node::InitializationResultImpl>, std::__1::basic_string_view<char, std::__1::char_traits<char> >, std::__1::vector<std::__1::basic_string_view<char, std::__1::char_traits<char> >, std::__1::allocator<std::__1::basic_string_view<char, std::__1::char_traits<char> > > > const&) in libnode.a(node_task_runner.o)
+ld: symbol(s) not found for architecture x86_64
+  "std::__1::__fs::filesystem::path::replace_extension(std::__1::__fs::filesystem::path const&)", referenced from:
+      node::ReportFatalException(node::Environment*, v8::Local<v8::Value>, v8::Local<v8::Message>, node::EnhanceFatalException) in libnode.a(node_errors.o)
+clang-15: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+        
+</details>
+        
 残念ながら node(22.2.0)が最終バージョンになりました、以下が依存関係のバージョンです  
 ```
 node (22.2.0)
