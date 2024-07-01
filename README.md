@@ -250,18 +250,6 @@ cc --version で返ってくる値　Target: x86_64-apple-darwin17.7.0 になり
 
 set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
-llvm@16以降で nodeをビルドする場合はヘッダーをコメントにしないとエラーになります
-
-/usr/local/opt/llvm/include/c++/v1/new; # の355行目
-
-return ::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
-
-これを以下に書き換えます
-
-return; //::aligned_alloc(__alignment, __size > __rounded_size ? __size : __rounded_size);
-
-php を llvm@16 以降でビルドするとエラーになります、特別な理由がなければ llvm@15でビルドしましょう</br></br>
-
 2024年5月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
 
 mv /usr/local/Cellar/gdk-pixbuf/2.42.12 /usr/local/Cellar/gdk-pixbuf/2.42.10
