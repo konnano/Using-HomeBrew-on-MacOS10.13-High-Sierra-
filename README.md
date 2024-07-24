@@ -254,6 +254,8 @@ set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
 mv /usr/local/Cellar/gdk-pixbuf/2.42.12 /usr/local/Cellar/gdk-pixbuf/2.42.10
 
+``brew install libheif``
+
 libheif のインストールが終われば元に戻しましょう
 
 mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.12</br></br>
