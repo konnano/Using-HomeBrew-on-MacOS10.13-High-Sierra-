@@ -230,7 +230,7 @@ node (22.2.0)
 ```
 node(22.2.0) のボトルを置いておきます、不具合があれば教えて下さい
 
-brew install node--22.2.0.high_sierra.bottle.tar.gz</br></br>
+`brew install node--22.2.0.high_sierra.bottle.tar.gz`</br></br>
 
 2024年6月 llvm(18.1.8) がリリースされました、インストール方法は llvm@15 と同じです
 
