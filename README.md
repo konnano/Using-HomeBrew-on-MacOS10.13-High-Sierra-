@@ -270,6 +270,8 @@ boost と競合する為アンリンクします `brew unlink boost`
 
 `brew install --cc=llvm_clang mysql`
 
+`mysql.server start` ..The server quit without updating PID file でエラーになります
+
 パスワード設定関係が変わってるので情報が出てからのインストールがいいかも知れません</br></br>
 
 2024年5月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
