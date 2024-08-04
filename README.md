@@ -29,7 +29,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年12月 php、mysql、jpeg-xl、doxygen などは以下でインストール出来ます
+2023年12月 php、jpeg-xl、doxygen などは以下でインストール出来ます
 
 ``brew install --cc=llvm_clang`` \<Formula>
 
