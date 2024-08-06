@@ -258,9 +258,9 @@ set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
 mysql(8.3.0) から (9.0.1) へダイレクトにバージョンアップが出来ません  
 mysql(8.4.0) をインストールしてから (9.0.1) にアップグレードして下さい  
-Homebrew から提供されてないのでソースからダイレクトにインストールします  
-\### PR を受けて早速 mysql@8.4 がリリースされました ###  
-\### mysql@8.4 が依存する protobuf は llvm@15 を使ってビルドは成功しますがテストで失敗します ###
+アップグレードの方法は [幾つかあり](https://github.com/orgs/Homebrew/discussions/5539 "Homebrew")、色々試してみましたがデーターベースのバックアップを取って  
+mysql のアンインストール、/usr/local/var/mysql の削除してから  
+mysql(9.0.1) をダイレクトにインストールするのが一番簡単でした
 
 配布先 https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0.tar.gz
 
@@ -482,9 +482,11 @@ mysql フォーミュラのダウンロード先と sha256 を mysql(8.4.0) に�
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm/bin/#{Regexp.last_match(1)}"
 
-`brew install --cc=llvm_clang mysql`
+brew install --cc=llvm_clang mysql # mysql(8.4.0)
 
-認証関係がややこしくなってます</br></br>
+cp ~/mysql.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/m/
+
+brew install --cc=llvm_clang mysql # mysql(9.0.1)</br></br>
 
 2024年5月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
 
