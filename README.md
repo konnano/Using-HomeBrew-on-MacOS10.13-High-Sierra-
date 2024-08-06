@@ -258,13 +258,12 @@ set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
 mysql(8.3.0) から (9.0.1) へダイレクトにバージョンアップが出来ません  
 mysql(8.4.0) をインストールしてから (9.0.1) にアップグレードして下さい  
-アップグレードの方法は [幾つかあり](https://github.com/orgs/Homebrew/discussions/5539 "Homebrew")、色々試してみましたがデーターベースのバックアップを取って  
+アップグレードの方法は幾つかあります https://github.com/orgs/Homebrew/discussions/5539  
+色々試してみましたが結果的にデーターベースのバックアップを取って  
 mysql のアンインストール、/usr/local/var/mysql の削除してから  
 mysql(9.0.1) をダイレクトにインストールするのが一番簡単でした
 
-配布先 https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0.tar.gz
-
-mysql フォーミュラのバックアップをコピーして保存して下さい
+アップグレードするなら mysql フォーミュラのバックアップをコピーして保存して下さい
 
 cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/m/mysql.rb ~/  
 
@@ -467,6 +466,8 @@ end
 ```
         
 </details>
+
+配布先 https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0.tar.gz
 
 mysql フォーミュラのダウンロード先と sha256 を mysql(8.4.0) に書き換えて下さい
 
