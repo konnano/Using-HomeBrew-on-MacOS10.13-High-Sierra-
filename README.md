@@ -471,7 +471,8 @@ end
 
 mysql フォーミュラのダウンロード先と sha256 を mysql(8.4.0) に書き換えて下さい
 
-`brew unlink boost`
+`brew unlink boost`  
+`mysql.server stop`
 
 最新の llvm((18.1.8) が必要になります
 
@@ -483,11 +484,13 @@ mysql フォーミュラのダウンロード先と sha256 を mysql(8.4.0) に�
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm/bin/#{Regexp.last_match(1)}"
 
-brew install --cc=llvm_clang mysql # mysql(8.4.0)
+`brew install --cc=llvm_clang mysql` # mysql(8.4.0)  
+`mysql.server start`  
+`mysql.server stop`
 
 cp ~/mysql.rb /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/m/
 
-brew install --cc=llvm_clang mysql # mysql(9.0.1)</br></br>
+`brew install --cc=llvm_clang mysql` # mysql(9.0.1)</br></br>
 
 2024年5月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
 
