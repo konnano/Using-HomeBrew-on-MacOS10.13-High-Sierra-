@@ -263,7 +263,7 @@ mysql(8.4.0) をインストールしてから (9.0.1) にアップグレード�
 mysql のアンインストール、/usr/local/var/mysql の削除してから  
 mysql(9.0.1) をダイレクトにインストールするのが一番簡単でした
 
-アップグレードするなら mysql フォーミュラのバックアップをコピーして保存して下さい
+アップグレードするなら mysql フォーミュラをコピーして保存して下さい
 
 cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/m/mysql.rb ~/  
 
