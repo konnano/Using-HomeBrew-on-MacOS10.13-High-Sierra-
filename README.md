@@ -259,6 +259,8 @@ set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 mysql(8.3.0) から (9.0.1) へダイレクトにバージョンアップが出来ません  
 mysql(8.4.0) をインストールしてから (9.0.1) にアップグレードして下さい  
 アップグレードの方法は幾つかあります https://github.com/orgs/Homebrew/discussions/5539  
+mysql@8.4 を使う場合は mysql@8.4 の依存関係の書き換えとインストール方法の変更が必要になります
+
 色々試してみましたが結果的にデーターベースのバックアップを取って  
 mysql のアンインストール、/usr/local/var/mysql の削除してから  
 mysql(9.0.1) をダイレクトにインストールするのが一番簡単でした
