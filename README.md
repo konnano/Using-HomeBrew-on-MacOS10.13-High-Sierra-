@@ -29,7 +29,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年12月 php、jpeg-xl、doxygen などは以下でインストール出来ます
+2023年12月 php、jpeg-xl などは以下でインストール出来ます
 
 ``brew install --cc=llvm_clang`` \<Formula>
 
@@ -269,6 +269,10 @@ cp /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/m/mysql.rb ~/
 
 `brew edit mysql`
 
+配布先 https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0.tar.gz
+
+mysql フォーミュラのダウンロード先と sha256 を mysql(8.4.0) に書き換えて下さい
+
 <details><summary> 私のフォーミュラを載せておきます</summary>
   
 ```
@@ -466,10 +470,6 @@ end
 ```
         
 </details>
-
-配布先 https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0.tar.gz
-
-mysql フォーミュラのダウンロード先と sha256 を mysql(8.4.0) に書き換えて下さい
 
 `brew unlink boost`  
 `mysql.server stop`
