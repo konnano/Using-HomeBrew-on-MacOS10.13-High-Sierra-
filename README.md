@@ -230,6 +230,8 @@ node (22.2.0)
 ```
 2024年8月 node(22.2.0) のボトルを置いておきます、不具合があれば教えて下さい
 
+shasum -a 256 : 1a379af916eda24de9a0fd37fcf63575a37baa9add2066073e13aab7882186c6
+
 `brew install node--22.2.0.high_sierra.bottle.tar.gz`</br></br>
 
 2024年6月 llvm(18.1.8) がリリースされました、インストール方法は llvm@15 と同じです
