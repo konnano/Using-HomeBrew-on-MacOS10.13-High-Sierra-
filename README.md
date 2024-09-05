@@ -256,6 +256,20 @@ cc --version で返ってくる値　Target: x86_64-apple-darwin17.7.0 になり
 
 set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
+2024年9月 tar のバージョンが古いのいで ruby の展開が出来ません
+
+``brew install gnu-tar``
+
+/usr/local/Homebrew/Library/Homebrew/unpack_strategy/tar.rb # 49行目
+
+system_command! "tar",
+
+これを以下に書き換えます
+
+system_command! "/usr/local/bin/gtar",
+
+``brew install ruby``</br></br>
+
 2024年8月 mysql(9.0.1) がリリースされました
 
 mysql(8.3.0) から (9.0.1) へダイレクトにバージョンアップが出来ません  
