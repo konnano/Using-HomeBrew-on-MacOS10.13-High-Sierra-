@@ -328,11 +328,11 @@ clang と clang-15 はアーキテクチャが違うので llvm があるとエ�
 
 subversion をインストールする場合は llvm のリンクを解除してインストールして下さい
 
-brew unlink llvm@15 ; ``brew install subversion``
+``brew unlink llvm@15`` ; ``brew install subversion``
 
 subversion のインストールが終われば llvm のリンクを戻して大丈夫です
 
-brew link llvm@15
+``brew link llvm@15``
 
 2024年5月　openexr をリインストールしたらエラーになりました
 
@@ -340,9 +340,9 @@ brew link llvm@15
 
 libdeflate , clang-format がないエラーです、依存関係が更新されてません
 
-brew install libdeflate
+``brew install libdeflate``
 
-brew reinstall openexr
+``brew reinstall openexr``
 
 clang-format はなくても大丈夫です</br></br>
 
@@ -358,7 +358,7 @@ HAVE_UNISTD_H 定義を無効にして unistd.hを読み込ませます
 
 \#if !defined(HAVE_UNISTD_H) // || HAVE_UNISTD_H
 
-brew install c-ares 
+``brew install c-ares ``
 
 ~/Library/Logs/Homebrew/c-ares/02.cmake を確認すると
 
