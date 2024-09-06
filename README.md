@@ -258,7 +258,9 @@ set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
 
 2024年9月 tar のバージョンが古いのいで ruby の展開が出来ません
 
-``brew install gnu-tar``
+gnu-tar より高機能な libarchive を使います
+
+``brew install libarchive``
 
 /usr/local/Homebrew/Library/Homebrew/unpack_strategy/tar.rb # 49行目
 
@@ -266,7 +268,7 @@ system_command! "tar",
 
 これを以下に書き換えます
 
-system_command! "/usr/local/bin/gtar",
+system_command! "/usr/local/Cellar/libarchive/3.7.4/bin/tar",
 
 ``brew install ruby``</br></br>
 
