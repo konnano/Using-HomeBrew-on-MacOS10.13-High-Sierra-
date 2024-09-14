@@ -282,6 +282,8 @@ mysql(8.3.0) から (9.0.1) へダイレクトにバージョンアップが出�
 mysql のアンインストール、/usr/local/var/mysql の削除してから  
 mysql(9.0.1) をダイレクトにインストールするのが一番簡単でした
 
+abseil、protobuf は llvm@15 を使って下さい
+
 ``brew install --cc=llvm_clang abseil``
 
 ``brew install --cc=llvm_clang protobuf``
