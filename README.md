@@ -268,7 +268,7 @@ system_command! "tar",
 
 これを以下に書き換えます
 
-system_command! "/usr/local/Cellar/libarchive/3.7.5/bin/tar",
+system_command! "/usr/local/opt/libarchive/bin/tar",
 
 ``brew install ruby``</br></br>
 
