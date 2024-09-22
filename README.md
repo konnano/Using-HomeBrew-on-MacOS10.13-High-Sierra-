@@ -312,11 +312,15 @@ libheif のインストールが終われば元に戻しましょう
 
 mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.12</br></br>
 
-2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります
+2024年9月 tesseract のインストールは filesystem を無効にする事で出来ますが
 
-ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします
+ghostscript のインストールでエラーになります、tesseract の引数が合わないようです
 
-``brew install --cc=gcc-11 ghostscript``</br></br>
+~~2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります~~
+
+~~ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします~~
+
+~~``brew install --cc=gcc-11 ghostscript``</br></br>~~
 
 shared-mime-info も --cc=gcc-11 オプションを使って下さい
 
