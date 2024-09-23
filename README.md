@@ -334,7 +334,7 @@ Choose an action:5
 /usr/local/bin/gsed -i '/#include <filesystem>/d
 s/filePath.extension() == ".box"/strcmp(bu,".box")==0/
 /Load input files/a FILE *po\;\nchar bu[256]\;
-s/.*std::filesystem::path filePath = argv\[arg]\;/char co[] = "echo "\;\
+s/.*std::filesystem::path filePath = argv\[arg]\;/char co[256] = "echo "\;\
 strcat(co,argv[arg])\;\
 strcat(co,"|rev|cut -c -4|rev")\;\
 po = popen(co,"r")\;\
