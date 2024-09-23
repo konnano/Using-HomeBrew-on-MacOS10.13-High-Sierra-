@@ -319,12 +319,12 @@ filesystem を無効にしてコマンドで拡張子を取得してるので不
 
 ``brew install --cc=llvm_clang tesseract --debug`` # llvm@15
 
-BuildError: Failed executing: make training
-1. raise
-2. ignore
-3. backtrace
-4. irb
-5. shell
+BuildError: Failed executing: make training  
+1\. raise  
+2\. ignore  
+3\. backtrace  
+4\. irb  
+5\. shell  
 Choose an action:5
 
 [MacBook-Pro]% cd /tmp/tesseract-...../tesseract-5.4.1/
@@ -337,7 +337,7 @@ s/.*std::filesystem::path filePath = argv\[arg]\;/char co[] = "echo "\;\
 strcat(co,argv[arg])\;\
 strcat(co,"|rev|cut -c -4|rev")\;\
 po = popen(co,"r")\;\
-fgets(bu,sizeof(bu),po)\;\
+fgets(bu,9,po)\;\
 pclose(po)\;\
 strtok(bu,"\\n\\0")\;/
 s/filePath.extension() == ".box"/strcmp(bu,".box")==0/' src/training/unicharset_extractor.cpp
@@ -345,22 +345,22 @@ s/filePath.extension() == ".box"/strcmp(bu,".box")==0/' src/training/unicharset_
 
 [MacBook-Pro]% make training
 
-[MacBook-Pro]% exit
-1. raise
-2. ignore
-3. backtrace
-4. irb
-5. shell
+[MacBook-Pro]% exit  
+1\. raise  
+2\. ignore  
+3\. backtrace  
+4\. irb  
+5\. shell  
 Choose an action:2
 
 ``brew install --cc=gcc-11 ghostscript --debug``
 
-BuildError: Failed executing: make training
-1. raise
-2. ignore
-3. backtrace
-4. irb
-5. shell
+BuildError: Failed executing: make training  
+1\. raise  
+2\. ignore  
+3\. backtrace  
+4\. irb  
+5\. shell  
 Choose an action:5
 
 [MacBook-Pro]% cd /tmp/ghostscript-...../ghostscript-10.04.0/
@@ -369,12 +369,12 @@ Choose an action:5
 
 [MacBook-Pro]% make install
 
-[MacBook-Pro]% exit
-1. raise
-2. ignore
-3. backtrace
-4. irb
-5. shell
+[MacBook-Pro]% exit  
+1\. raise  
+2\. ignore  
+3\. backtrace  
+4\. irb  
+5\. shell  
 Choose an action:2</br></br>
 
 shared-mime-info も --cc=gcc-11 オプションを使って下さい
