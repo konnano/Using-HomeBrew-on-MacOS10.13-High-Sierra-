@@ -338,9 +338,9 @@ strcat(co,argv[arg])\;\
 strcat(co,"|rev|cut -c -4|rev")\;\
 po = popen(co,"r")\;\
 fgets(bu,sizeof(bu),po)\;\
-strtok(bu,"\\n\\0")\;\
-pclose(po)\;/
-s/filePath.extension()/bu/' src/training/unicharset_extractor.cpp
+pclose(po)\;\
+strtok(bu,"\\n\\0")\;/
+s/filePath.extension() == ".box"/strcmp(bu,".box")==0/' src/training/unicharset_extractor.cpp
 ```
 
 [MacBook-Pro]% make training
