@@ -312,15 +312,70 @@ libheif のインストールが終われば元に戻しましょう
 
 mv /usr/local/Cellar/gdk-pixbuf/2.42.10 /usr/local/Cellar/gdk-pixbuf/2.42.12</br></br>
 
-2024年9月 tesseract のインストールは filesystem を無効にする事で出来ますが
+2024年9月 ghostscript は依存する tesseract を含めソースの書き換えが必要になります  
+filesystem を無効にしてコマンドで拡張子を取得してるので不具合が出るかもしれません
 
-ghostscript のインストールでエラーになります、tesseract の引数が合わないようです
+``brew install gnu-sed``
 
-~~2023年3月末、ghostscriptは通常インストールや --cc=llvm_clangでもエラーになります~~
+``brew install --cc=llvm_clang tesseract --debug``
 
-~~ghostscriptは gccに依存するのでインストールオプションを変え、gccでコンパイルします~~
+BuildError: Failed executing: make training
+1. raise
+2. ignore
+3. backtrace
+4. irb
+5. shell
+Choose an action:5
 
-~~``brew install --cc=gcc-11 ghostscript``</br></br>~~
+[MacBook-Pro]% cd /tmp/tesseract-...../tesseract-5.4.1/
+
+  全てコピペして下さい
+  ```
+/usr/local/bin/gsed -i 's/#include <filesystem>/#include <string>/
+/Load input files/a FILE *po\;\nchar bu[9]\;
+s/.*std::filesystem::path filePath = argv\[arg]\;/char co[] = "echo "\;\
+strcat(co,argv[arg])\;\
+strcat(co,"|rev|cut -c -4|rev")\;\
+po = popen(co,"r")\;\
+fgets(bu,sizeof(bu),po)\;\
+strtok(bu,"\\n\\0")\;\
+pclose(po)\;/
+s/filePath.extension()/bu/' src/training/unicharset_extractor.cpp
+```
+
+[MacBook-Pro]% make training
+
+[MacBook-Pro]% exit
+1. raise
+2. ignore
+3. backtrace
+4. irb
+5. shell
+Choose an action:2
+
+``brew install --cc=gcc-11 ghostscript --debug``
+
+BuildError: Failed executing: make training
+1. raise
+2. ignore
+3. backtrace
+4. irb
+5. shell
+Choose an action:5
+
+[MacBook-Pro]% cd /tmp/ghostscript-...../ghostscript-10.04.0/
+
+[MacBook-Pro]% ``/usr/local/bin/gsed -i 's/\/\*.*\*\///;379 s/^/\/\*/;391 s/^/\*\//' base/tessocr.cpp``
+
+[MacBook-Pro]% make install
+
+[MacBook-Pro]% exit
+1. raise
+2. ignore
+3. backtrace
+4. irb
+5. shell
+Choose an action:2</br></br>
 
 shared-mime-info も --cc=gcc-11 オプションを使って下さい
 
