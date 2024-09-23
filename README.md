@@ -331,7 +331,8 @@ Choose an action:5
 
   全てコピペして下さい
   ```
-/usr/local/bin/gsed -i 's/#include <filesystem>/#include <string>/
+/usr/local/bin/gsed -i '/#include <filesystem>/d
+s/filePath.extension() == ".box"/strcmp(bu,".box")==0/
 /Load input files/a FILE *po\;\nchar bu[9]\;
 s/.*std::filesystem::path filePath = argv\[arg]\;/char co[] = "echo "\;\
 strcat(co,argv[arg])\;\
@@ -339,8 +340,7 @@ strcat(co,"|rev|cut -c -4|rev")\;\
 po = popen(co,"r")\;\
 fgets(bu,9,po)\;\
 pclose(po)\;\
-strtok(bu,"\\n\\0")\;/
-s/filePath.extension() == ".box"/strcmp(bu,".box")==0/' src/training/unicharset_extractor.cpp
+strtok(bu,"\\n\\0")\;/' src/training/unicharset_extractor.cpp
 ```
 
 [MacBook-Pro]% make training
