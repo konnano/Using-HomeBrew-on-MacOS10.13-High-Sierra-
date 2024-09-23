@@ -317,7 +317,7 @@ filesystem を無効にしてコマンドで拡張子を取得してるので不
 
 ``brew install gnu-sed``
 
-``brew install --cc=llvm_clang tesseract --debug``
+``brew install --cc=llvm_clang tesseract --debug`` # llvm@15
 
 BuildError: Failed executing: make training
 1. raise
