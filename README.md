@@ -234,27 +234,7 @@ shasum -a 256 : 1a379af916eda24de9a0fd37fcf63575a37baa9add2066073e13aab7882186c6
 
 `brew install node--22.2.0.high_sierra.bottle.tar.gz`</br></br>
 
-2024年6月 llvm(18.1.8) がリリースされました、インストール方法は llvm@15 と同じです
-
-llvm(18.1.8) 関連のインストールは依存関係が少しややこしいです
-
-vim は ruby に依存し ruby のビルドに rust が必要になります
-
-rust は llvm に依存し llvm のビルドに ninja が必要になります<br/><br/>
-
-llvm(18.1.8) のビルドは llvm@15 と同じです、ただ私の環境では何故か  
-iMac(2013)OS10.13 はビルド出来るのですが iBookPro(2012)OS10.13 ではエラーになります
-
-~/Library/Logs/Homebrew/llvm/02.cmakeを確認すると引数が足りないエラーになっています
-
-CMake Error at /tmp/llvm......../llvm-project-18.1.8.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:371 (string):
-8515   string sub-command REPLACE requires at least four arguments.
-
-ビルドに成功してる iMacで足りない値を表示すると　x86_64-apple-darwin17.7.0 でした  
-cc --version で返ってくる値　Target: x86_64-apple-darwin17.7.0 になります  
-/tmp/llvm......../llvm-project-18.1.8.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake # 370行目に追加
-
-set(COMPILER_RT_DEFAULT_TARGET_TRIPLE "x86_64-apple-darwin17.7.0")</br></br>
+2024年9月 llvm(19.1.0) がリリースされました、インストール方法は llvm@15 と同じです</br></br>
 
 2024年9月 tar のバージョンが古いのいで ruby の展開が出来ません
 
