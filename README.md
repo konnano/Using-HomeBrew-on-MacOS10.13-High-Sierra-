@@ -295,7 +295,10 @@ abseil、protobuf は llvm@15 を使って下さい
 
 ``brew install --cc=llvm_clang abseil``
 
-``brew install --cc=llvm_clang protobuf``
+``brew install --cc=llvm_clang protobuf``  
+protobuf(28.2) にアップグレードした場合ライブラリが置き換わる為、mysql(9.0.1_2) は動かなくなります  
+cd /usr/local/Cellar/protobuf/28.2/lib  
+ln -s libprotobuf-lite.28.2.0.dylib libprotobuf-lite.28.1.0.dylib  
 
 mysql(9.0.1_3) インストールは出来ますが、ライブラリが欠落してるようで動きません  
 ~~`brew unlink boost`~~  
