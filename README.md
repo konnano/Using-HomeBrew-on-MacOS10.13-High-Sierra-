@@ -249,7 +249,7 @@ sudo ln -s /usr/local/bin/python3 /usr/bin/python
 sudo ln -s /usr/local/bin/python3 /usr/bin/python3
 ```
 
-rust は llvm(18.1.8) に依存するので、最新の llvm(19.1.0) にしていないならフォーミュラを書き換えます  
+rust は llvm@18 に依存するので、llvm(19.1.0) にしていないならフォーミュラを書き換えます  
 llvm(19.1.0) にアップデートしてるなら llvm@18 がインストールされるのでフォーミュラの書き換えは必要ありません  
 llvm@18 のインストールも llvm@15 と同じです
 
@@ -299,7 +299,7 @@ abseil、protobuf は llvm@15 を使って下さい
 
 `brew unlink boost`  
 
-mysql には llvm((18.1.8) が必要になります
+mysql には llvm@18 が必要になります
 
 /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
 
