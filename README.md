@@ -297,19 +297,20 @@ abseil、protobuf は llvm@15 を使って下さい
 
 ``brew install --cc=llvm_clang protobuf``
 
-`brew unlink boost`  
+mysql(9.0.1_3) インストールは出来ますが、ライブラリが欠落してるようで動きません  
+~~`brew unlink boost`~~  
 
-mysql には llvm@18 が必要になります
+~~mysql には llvm@18 が必要になります~~
 
-/usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
+~~/usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目~~
 
-"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"
+~~"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"~~
 
-これを以下に書き換えます
+~~これを以下に書き換えます~~
 
-"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@18/bin/#{Regexp.last_match(1)}"
+~~"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@18/bin/#{Regexp.last_match(1)}"~~
 
-`brew install --cc=llvm_clang mysql`</br></br>
+~~`brew install --cc=llvm_clang mysql`~~</br></br>
 
 2024年5月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
 
