@@ -234,11 +234,36 @@ shasum -a 256 : 1a379af916eda24de9a0fd37fcf63575a37baa9add2066073e13aab7882186c6
 
 `brew install node--22.2.0.high_sierra.bottle.tar.gz`</br></br>
 
-2024年9月 llvm(19.1.0) がリリースされました、インストール方法は llvm@15 と同じです
+2024年9月 llvm(19.1.0) がリリースされました、インストール方法は llvm@15 と同じです  
+まだ llvm(19.1.0) を必要とするフォーミュラは無さそうです
 
-2024年9月 rust は python2 と python3 を使っているいのでシステムを書き換えないといけません
+rust は python2 と python3 を使っているいのでシステムを書き換えます
 
-あまりシステムに触れたくないのでフォーミュラーの書き換えでなんとか出来ないか考えてます</br></br>
+SIP を無効にして下さい、ややこしいので実行する場合は慎重に行って下さい
+
+```
+cd /usr/bin  
+sudo mv /usr/bin/python /usr/bin/python_buck  
+sudo ln -s ../../System/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7 /usr/bin/python2  
+sudo ln -s /usr/local/bin/python3 /usr/bin/python  
+sudo ln -s /usr/local/bin/python3 /usr/bin/python3
+```
+
+rust は llvm(18.1.8) に依存するので、最新の llvm(19.1.0) にしていないならフォーミュラを書き換えます  
+llvm(19.1.0) にアップデートしてるなら llvm@18 がインストールされるのでフォーミュラの書き換えは必要ありません  
+llvm@18 のインストールも llvm@15 と同じです
+
+brew edit rust
+
+depends_on "llvm@18" #37行目  
+以下に書き換え  
+depends_on "llvm"
+
+--llvm-root=#{Formula["llvm@18"].opt_prefix} #121行目  
+以下に書き換え  
+--llvm-root=#{Formula["llvm"].opt_prefix}
+
+``brew install rust``</br></br>
 
 2024年9月 tar のバージョンが古いのいで ruby の展開が出来ません
 
@@ -274,7 +299,7 @@ abseil、protobuf は llvm@15 を使って下さい
 
 `brew unlink boost`  
 
-mysql には最新の llvm((18.1.8) が必要になります
+mysql には llvm((18.1.8) が必要になります
 
 /usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
 
@@ -282,7 +307,7 @@ mysql には最新の llvm((18.1.8) が必要になります
 
 これを以下に書き換えます
 
-"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm/bin/#{Regexp.last_match(1)}"
+"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@18/bin/#{Regexp.last_match(1)}"
 
 `brew install --cc=llvm_clang mysql`</br></br>
 
