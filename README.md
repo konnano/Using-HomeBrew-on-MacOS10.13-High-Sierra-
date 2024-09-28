@@ -29,7 +29,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 "#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
 
-2023年12月 php、jpeg-xl などは以下でインストール出来ます
+2023年12月 jpeg-xl などは以下でインストール出来ます
 
 ``brew install --cc=llvm_clang`` \<Formula>
 
@@ -264,6 +264,14 @@ depends_on "llvm"
 --llvm-root=#{Formula["llvm"].opt_prefix}
 
 ``brew install rust``</br></br>
+
+2024年9月 php は gd でエラーになります、pkg-config が関係してるようですがわかりません
+
+brew edit php
+
+--enable-gd # 135行目を削除します
+
+これでインストールは出来ますが gd 拡張が使えません、何か良いアイデアがあれば教えて下さい</br></br>
 
 2024年9月 tar のバージョンが古いのいで ruby の展開が出来ません
 
