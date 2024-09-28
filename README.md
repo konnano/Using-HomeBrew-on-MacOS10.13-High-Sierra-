@@ -299,24 +299,23 @@ abseil、protobuf は llvm@15 を使って下さい
 ``brew install --cc=llvm_clang abseil``
 
 ``brew install --cc=llvm_clang protobuf``  
-protobuf(28.2) にアップグレードした場合ライブラリが置き換わる為、mysql(9.0.1_2) は動かなくなります  
-cd /usr/local/Cellar/protobuf/28.2/lib  
-ln -s libprotobuf-lite.28.2.0.dylib libprotobuf-lite.28.1.0.dylib  
 
-mysql(9.0.1_3) インストールは出来ますが、ライブラリが欠落してるようで動きません  
-~~`brew unlink boost`~~  
+mysql(9.0.1_3) をインストールするとライブラリが足らないエラーで動かなかったのに  
+再度、インストールしてみると動きました、mysql のエラーは難し過ぎます
 
-~~mysql には llvm@18 が必要になります~~
+`brew unlink boost`
 
-~~/usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目~~
+mysql には llvm@18 が必要になります
 
-~~"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"~~
+/usr/local/Homebrew/Library/Homebrew/shims/super/cc ; # 80行目
 
-~~これを以下に書き換えます~~
+"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@15/bin/#{Regexp.last_match(1)}"
 
-~~"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@18/bin/#{Regexp.last_match(1)}"~~
+これを以下に書き換えます
 
-~~`brew install --cc=llvm_clang mysql`~~</br></br>
+"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@18/bin/#{Regexp.last_match(1)}"
+
+`brew install --cc=llvm_clang mysql`</br></br>
 
 2024年5月 libheifはビルド依存する pkg-configが Homebrewのgdk-pixbufを読み込みエラーになります
 
