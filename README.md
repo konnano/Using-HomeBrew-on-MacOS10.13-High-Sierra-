@@ -27,14 +27,7 @@ https://developer.apple.com/download/more/ # ここからダウンロード
 
 これを以下に書き換えます
 
-"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"
-
-2023年12月 jpeg-xl などは以下でインストール出来ます
-
-``brew install --cc=llvm_clang`` \<Formula>
-
---cc オプションは指定したフォーミュラにのみ有効で依存するフォーミュラには動作しません  
-なので依存するフォーミュラに --cc オプションが必要な場合は個別にインストールします</br></br>
+"#{ENV["HOMEBREW_PREFIX"]}/opt/llvm@12/bin/#{Regexp.last_match(1)}"</br></br>
 
 islのビルドに gcc@11が必要なのですが gcc@11が islに依存するので gccの通常インストールが出来ません
 
@@ -271,7 +264,9 @@ brew edit php
 
 --enable-gd # 135行目を削除します
 
-これでインストールは出来ますが gd 拡張が使えません、何か良いアイデアがあれば教えて下さい</br></br>
+これでインストールは出来ますが gd 拡張が使えません、何か良いアイデアがあれば教えて下さい
+
+``brew install --cc=llvm_clang php`` # llvm@15</br></br>
 
 2024年9月 tar のバージョンが古いのいで ruby の展開が出来ません
 
